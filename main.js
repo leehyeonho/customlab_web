@@ -72,7 +72,7 @@ app.set('views', './public/views');
 
 
 
-const port = 3000
+const port = 80
 
 //index.html
 app.get('/', function(request, response) {
