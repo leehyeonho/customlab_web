@@ -129,6 +129,11 @@ app.post('/signup', function(request, response){
   user.signup(request, response);
 });
 
+app.get('/loginfail', function(request, response){
+  response.writeHead(200,{'Content-Type':'text/html;charset=UTF-8'});
+  fs.createReadStream("loginfail.html").pipe(response);
+});
+
 app.post('/upload', upload.single('imgFile'), function(request, response){
   board.upload(request, response);
 });
@@ -141,4 +146,4 @@ app.get('/:page', function(request, response){
   }
 });
 
-app.listen(port, () => console.log(`listening on port ${port}!`))
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
