@@ -48,6 +48,12 @@ src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/Lo
 font-family: 'LotteMartDream', sans-serif;
 }
 
+.clfix:after {content: "."; display: block; height:0px; clear: both; visibility: hidden;}
+.clfix {display:inline-block;}
+.clfix {display:block;}
+* html .clfix {height:1%;} /* Hides from IE-mac */
+.clfix {zoom:1;} /*for IE 5.5-7*/
+
 /* Common **********************************************************************/
 html,body {width:100%; }
 html {overflow-y:scroll; box-sizing:border-box;}
