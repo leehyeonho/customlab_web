@@ -193,3 +193,13 @@ exports.search = function(request, response) {
       response.render('board_search', {session : request.session, totalCount : totalCount, pageNum : 1, start : startPage, end : endPage, data : results, tbl : tbl});
 	});
 }
+
+else if(tbl == 'product') {
+ sql = "SELECT * FROM product ORDER BY id DESC";
+ db.query(sql, function(error, result) {
+   sql = "SELECT count(*) as cnt FROM product";
+   db.query(sql, function(error, result_cnt) {
+     response.render('sub', {session : request.session, data : result, cnt : result_cnt[0].cnt, data_research : result_research, tbl : tbl});
+     });
+   });
+} 

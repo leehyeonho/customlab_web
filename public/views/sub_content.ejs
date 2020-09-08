@@ -231,60 +231,53 @@
 	</div><!--// contop -->
 	<div class="conbody">
 		<div id="DivContents">
-			<div class="professor01">
-				<div class="p_pic md20 mt20">
-					<img alt="" src="/images/sub/img0201.jpg">
-				</div>
-				<div class="p_basic">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					<td colspan="4" style="padding-bottom:5px;"></td>
+				</tr>
 
-					<dl>
-						<dt class="mt18">Jong-Chan Lee Ph.D.</dt>
-						<dd>
-							<ul>
-								<li>School of Chemical and Biological Engineering</li>
-								<li>Seoul National University Professor</li>
-							</ul>
-						</dd>
-						<dd><em>Tel.</em> +82-2-880-7070</dd>
-						<dd><em>Fax.</em> +82-2-880-8899</dd>
-						<dd><a href="mailto:jongchan@snu.ac.kr">jongchan@snu.ac.kr</a> </dd>
-					</dl>
-				</div>
-			</div>
-
-			<h4 class="h4_title mt30">Education</h4>
-			<h5 class="h5_title mt10">Ph.D. Case Western Reserve University, 1992-1996</h5>
-			<h5 class="h5_title">M.S. Seoul National University, 1989-1991</h5>
-			<h5 class="h5_title">B.S. Seoul National University, 1985-1989</h5>
-
-			<h4 class="h4_title mt60">PROFESSIONAL EXPERIENCE</h4>
-			<h5 class="h5_title mt10">School of Chemical and Biological Engineering, Seoul National University, 1999-present </h5>
-				<ul class="md35">
-					<li> - Professor</li>
-					<li> - Associate Professor</li>
-					<li> - Assistant Professor</li>
-				</ul>
-
-			<h5 class="h5_title mt20">University of Massachusetts-Amherst, 2005-2006</h5>
-				<ul class="md35">
-					<li>   - Visiting Professor</li>
-				</ul>
-			<h5 class="h5_title mt20">LG Chem, 2012-2013</h5>
-				<ul class=" md35">
-					<li>- Technical Adviser</li>
-				</ul>
-			<h5 class="h5_title mt20">Liquid Crystal Institute, 1998-1999</h5>
-				<ul class="md35">
-					<li>- Postdoctoral Researcher </li>
-				</ul>
-			<h5 class="h5_title mt20">Case Western Reserve University, 1996-1998</h5>
-				<ul class="md35">
-					<li>- Research Associate </li>
-				</ul>
-			<h5 class="h5_title mt20">KIST, 1991-1992</h5>
-				<ul class="md35">
-					<li>- Researcher</li>
-				</ul>
+				<% for(var i = 0; i<data.length;i++) { %>
+					<% if(i % 4 == 0) { %>
+						<tr>
+					<% } %>
+					<td valign="top"><!--  -->
+					<table width="150" height="150" border="0" align="center" cellpadding="0" cellspacing="0">
+						<tbody>
+							<tr>
+								<td>
+									<table width="150" border="0" cellpadding="0" cellspacing="0" style="border:1px solid #dcdcdc">
+										<tbody>
+											<tr>
+												<td align="center" height="150">
+													<a href="./board_view.ejs?tbl=<%= tbl %>&id=<%= data[i].id %>">
+														<img src="<%= data[i].img %>" width="150" height="150" border="0">
+													</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td height="25">
+									<div align="left" style="padding-left:5px;">
+										<a href="./board_view.ejs?tbl=<%= tbl %>&id=<%= data[i].id %>">
+											<font color="767676"><%= data[i].productName %></font>
+										</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td height="25"></td>
+							</tr>
+						</tbody>
+					</table>
+					</td>
+					<% if(i != 0 && i % 4 == 3) { %>
+						</tr>
+					<% } %>
+				<% } %>
+			</tbody></table>
 		</div>
 	</div><!--// conbody -->
 <% } else if(tbl == "service") { %>
