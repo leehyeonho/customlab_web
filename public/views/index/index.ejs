@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <head>
-<%- include ("head.ejs") %>
+<%- include ("base/head.ejs") %>
 <!-- <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function() {
@@ -53,11 +53,11 @@
 
 <body leftmargin="0" topmargin="0">
 <DIV ID="objContents">
-<%- include ("ddScript.ejs") %>
+<%- include ("base/ddScript.ejs") %>
 
 <div id="wrap">
 	<div id="header">
-	  <%- include ("header.ejs") %>
+	  <%- include ("base/header.ejs") %>
 	</div><!--// header -->
 
 	<div id="visual_wrap">
@@ -153,17 +153,17 @@
 		</div><!--// inner -->
 	</div><!--// member_info -->
 
-	<%- include ("notice.ejs") %>
-	<%- include ("publication.ejs") %>
+	<%- include ("base/notice.ejs") %>
+	<%- include ("base/publication.ejs") %>
 		</div><!--// left_contents -->
 
 		<div class="right_contents">
-			<%- include ("gallery.ejs") %>
+			<%- include ("base/gallery.ejs") %>
 		</div><!--// right_contents -->
 	</div><!--// main_container -->
 
 	<div id="footer">
-	  <%- include ("footer.ejs") %>
+	  <%- include ("base/footer.ejs") %>
 	</div><!--// footer -->
 </div><!--// wrap -->
 
