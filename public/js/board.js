@@ -33,7 +33,7 @@ exports.home = function(request, response) {
         endPage = totalPage;
       }
       endPage = parseInt(endPage);
-      response.render('board', {session : request.session, totalCount : totalCount, pageNum : request.query.pageNum, start : startPage, end : endPage, data : results, tbl : request.query.tbl});
+      response.render('board/board', {session : request.session, totalCount : totalCount, pageNum : request.query.pageNum, start : startPage, end : endPage, data : results, tbl : request.query.tbl});
       });
 
     });
@@ -55,11 +55,11 @@ exports.write = function(request, response) {
       console.log(error);
     }
 	if(request.body.tbl == "1") {
-	  response.redirect('/board.ejs?tbl=1&pageNum=1');
+	  response.redirect('/board/board.ejs?tbl=1&pageNum=1');
 	} else if(request.body.tbl == "2") {
-	  response.redirect('/board.ejs?tbl=2&pageNum=1');
+	  response.redirect('/board/board.ejs?tbl=2&pageNum=1');
 	} else if(request.body.tbl == "3") {
-	  response.redirect('/board.ejs?tbl=3&pageNum=1');
+	  response.redirect('/board/board.ejs?tbl=3&pageNum=1');
 	}
     });
 }
@@ -76,7 +76,7 @@ exports.upload = function(request, response) {
       console.log("post")
       console.log(request.file)
       console.log(request.file.path.substring(6))
-  	  response.redirect('/board.ejs?tbl=2&pageNum=1');
+  	  response.redirect('/board/board.ejs?tbl=2&pageNum=1');
   	}
     });
 }
@@ -111,7 +111,7 @@ exports.view = function(request, response) {
     }
     db.query(sql, [request.query.id], function(error, next) {
 
-    response.render('board_view', {session : request.session, data : result, tbl : tbl, pre : pre, next : next, id : request.query.id});
+    response.render('board/board_view', {session : request.session, data : result, tbl : tbl, pre : pre, next : next, id : request.query.id});
     });
     });
     });
@@ -140,7 +140,7 @@ exports.edit = function(request, response) {
   var id = request.body.id;
   sql = 'UPDATE bbs_free SET title = ?, content = ? where id = ?';
   db.query(sql, [title, content, id], function(error, result) {
-    response.redirect('/./board_view.ejs?id=' + id);
+    response.redirect('/./board/board_view.ejs?id=' + id);
 
     });
 }
@@ -156,7 +156,7 @@ exports.delete = function(request, response) {
     sql = 'DELETE FROM bbs_free WHERE id = ?';
   }
   db.query(sql, [id], function(error, result) {
-    response.redirect('/./board.ejs?tbl=' + tbl + '&pageNum=1');
+    response.redirect('/./board/board.ejs?tbl=' + tbl + '&pageNum=1');
     });
 }
 
@@ -190,16 +190,16 @@ exports.search = function(request, response) {
         endPage = totalPage;
       }
       endPage = parseInt(endPage);
-      response.render('board_search', {session : request.session, totalCount : totalCount, pageNum : 1, start : startPage, end : endPage, data : results, tbl : tbl});
+      response.render('board/board_search', {session : request.session, totalCount : totalCount, pageNum : 1, start : startPage, end : endPage, data : results, tbl : tbl});
 	});
 }
 
-else if(tbl == 'product') {
- sql = "SELECT * FROM product ORDER BY id DESC";
- db.query(sql, function(error, result) {
-   sql = "SELECT count(*) as cnt FROM product";
-   db.query(sql, function(error, result_cnt) {
-     response.render('sub', {session : request.session, data : result, cnt : result_cnt[0].cnt, data_research : result_research, tbl : tbl});
-     });
-   });
-} 
+// else if(tbl == 'product') {
+//  sql = "SELECT * FROM product ORDER BY id DESC";
+//  db.query(sql, function(error, result) {
+//    sql = "SELECT count(*) as cnt FROM product";
+//    db.query(sql, function(error, result_cnt) {
+//      response.render('sub/sub', {session : request.session, data : result, cnt : result_cnt[0].cnt, data_research : result_research, tbl : tbl});
+//      });
+//    });
+// }
