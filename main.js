@@ -81,7 +81,8 @@ app.get('/', function(request, response) {
 
 //sub
 app.get('/sub.ejs', function(request, response) {
-  response.render('sub', {session : request.session, tbl : request.query.tbl});
+  sub.view(request, response);
+  // response.render('sub', {session : request.session, tbl : request.query.tbl});
 });
 
 app.get('/board.ejs', function(request, response){

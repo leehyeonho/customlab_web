@@ -5,8 +5,6 @@ var sql = '';
 exports.view = function(request, response) {
   var tbl = request.query.tbl;
   var sql = "";
-  sql = 'SELECT * FROM research';
-  db.query(sql, function(error, result_research) {
   if(tbl == 'professor') {
     sql = 'SELECT * FROM professor';
       db.query(sql, function(error, result) {
@@ -67,8 +65,6 @@ exports.view = function(request, response) {
         }
       }
   }
-  });
-
 }
 
 exports.publication = function(request, response) {
