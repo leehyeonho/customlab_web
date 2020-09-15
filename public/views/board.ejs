@@ -2,7 +2,7 @@
 <head>
   <%- include ("head.ejs") %>
 </head>
-<script>
+<script type="text/javascript">
 function frm_check() {
   if(frm_search.search.value.length < 2) {
     alert("검색어는 2글자 이상 입력해주세요");
@@ -18,14 +18,14 @@ function frm_check() {
 }
 
 function login_check() {
-  alert("ddd");
-  var f = false;
+  var f = <%= session.isLogined %>
   console.log(f);
   if (f) {
     return true;
   } else {
     return false;
   }
+}
 </script>
 <body leftmargin="0" topmargin="0">
 <DIV ID="objContents">
