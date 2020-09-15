@@ -67,6 +67,7 @@ const ejs = require('ejs');
 var board = require('./public/js/board.js');
 var user = require('./public/js/user.js');
 var index = require('./public/js/index.js');
+var sub = require('./public/js/sub.js');
 app.set('view engine', 'ejs');
 app.set('views', './public/views');
 
