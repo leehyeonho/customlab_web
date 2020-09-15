@@ -5,13 +5,13 @@ var sql = '';
 exports.view = function(request, response) {
   var tbl = request.query.tbl;
   var sql = "";
-  if(tbl == 'info') {
-    sql = 'SELECT * FROM professor';
+  if(tbl == 'product') {
+    sql = 'SELECT * FROM product';
       db.query(sql, function(error, result) {
-        response.render('sub', {session : request.session, data : result, data_research : result_research, tbl : tbl});
+        response.render('sub', {session : request.session, data : result, tbl : tbl});
         });
-  } else if (tbl == 'history') {
-
+  } else {
+    response.render('sub', {session : request.session, tbl : request.query.tbl});
   }
 }
 
