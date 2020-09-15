@@ -154,4 +154,13 @@ app.get('/loginfail', function(request, response){
   fs.createReadStream("./html/loginfail.html").pipe(response);
 });
 
+app.use((req, res, next) => { // 404 처리 부분
+  res.status(404).send('<H1>일치하는 주소가 없습니다! 주소를 확인해주세요.</H1>');
+});
+
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.status(500).send("<h1>서버에서 에러가 발생했습니다. 이 상태가 계속 발생될 경우 관리자에게 문의해주세요.</h1>");
+});
+
 app.listen(port, () => console.log(`CUSTOM LAB WEB listening on port ${port}!`))
