@@ -19,6 +19,7 @@ function frm_check() {
 
 function login_check() {
   var f = <%= session.isLogined %>
+  console.log(f);
   if (f) {
     return true;
   } else {
