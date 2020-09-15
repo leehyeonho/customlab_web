@@ -16,6 +16,14 @@ function frm_check() {
   }
   else return true;
 }
+
+function login_check() {
+  var f = <%= session.isLogined %>
+  if (f) {
+    return true;
+  } else {
+    return false;
+  }
 </script>
 <body leftmargin="0" topmargin="0">
 <DIV ID="objContents">
@@ -151,14 +159,12 @@ function frm_check() {
 			</div>
 				</td>
 <td align="right">
-<% if(session.isLogined) { %>
 <% if(tbl == 1) { %>
 <%   if(session.user_id == 'admin') { %>
        <a href="./board_write.ejs?tbl=<%= tbl %>"><div class="bbs_btn">글쓰기</div>
 <%   } %>
 <% } else { %>
-<a href="./board_write.ejs?tbl=<%= tbl %>"><div class="bbs_btn">글쓰기</div>
-<% } %>
+<a href="./board_write.ejs?tbl=<%= tbl %>" onclick="return login_check();"><div class="bbs_btn">글쓰기</div>
 <% } %>
 </td>
 	</tr>
