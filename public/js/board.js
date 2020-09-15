@@ -178,6 +178,7 @@ exports.search = function(request, response) {
   switch (type) {
     case "total":
     sql = 'SELECT count(*) as cnt FROM ' + tblname + ' where title like ' + search + ' OR author like ' + search + ' OR content like ' + search;
+
     break;
     case "title":
     sql = 'SELECT count(*) as cnt FROM ' + tblname + ' where title like ' + search;
@@ -190,6 +191,7 @@ exports.search = function(request, response) {
     break;
     default:
   }
+  console.log(sql);
   db.query(sql, function(error, result) {
     if(result != null) {
       totalCount = 0;
