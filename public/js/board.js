@@ -191,7 +191,11 @@ exports.search = function(request, response) {
     default:
   }
   db.query(sql, function(error, result) {
-    totalCount = result[0].cnt;
+    if(result != null) {
+      totalCount = 0;
+    } else {
+      totalCount = result[0].cnt;
+    }
   });
   switch (type) {
     case "total":
