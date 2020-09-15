@@ -134,12 +134,23 @@ app.post('/upload', upload.single('imgFile'), function(request, response){
   board.upload(request, response);
 });
 
-app.get('/:page', function(request, response){
-  if(request.params.page == '/favicon.ico') {
-  } else {
-    response.writeHead(200,{'Content-Type':'text/html;charset=UTF-8'});
-    fs.createReadStream("./html/" + request.params.page + ".html").pipe(response);
-  }
+app.get('/complete', function(request, response){
+  response.writeHead(200,{'Content-Type':'text/html;charset=UTF-8'});
+  fs.createReadStream("./html/complete.html").pipe(response);
+});
+
+app.get('/favicon.ico', function(request, response){
+  response.writeHead(200,{'Content-Type':'text/html;charset=UTF-8'});
+});
+
+app.get('/signup', function(request, response){
+  response.writeHead(200,{'Content-Type':'text/html;charset=UTF-8'});
+  fs.createReadStream("./html/signup.html").pipe(response);
+});
+
+app.get('/loginfail', function(request, response){
+  response.writeHead(200,{'Content-Type':'text/html;charset=UTF-8'});
+  fs.createReadStream("./html/loginfail.html").pipe(response);
 });
 
 app.listen(port, () => console.log(`CUSTOM LAB WEB listening on port ${port}!`))
