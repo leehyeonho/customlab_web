@@ -23,6 +23,7 @@ function login_check() {
   if (f) {
     return true;
   } else {
+    alert("로그인이 필요합니다.");
     return false;
   }
 }
@@ -161,7 +162,7 @@ function login_check() {
 			</div>
 				</td>
 <td align="right">
-<% if(tbl == 1) { %>
+<% if(tbl == 1 || tbl == 2) { %>
 <%   if(session.user_id == 'admin') { %>
        <a href="./board_write.ejs?tbl=<%= tbl %>"><div class="bbs_btn">글쓰기</div>
 <%   } %>
