@@ -163,7 +163,7 @@ exports.delete = function(request, response) {
 exports.search = function(request, response) {
   var totalCount = 0;
   var search = "\"%" + request.body.search + "%\"";
-  var type = request.body.findType.value;
+  var type = request.body.findType;
   console.log(type);
   console.log(search);
   var tbl = request.body.tbl;
@@ -179,7 +179,6 @@ exports.search = function(request, response) {
   switch (type) {
     case "total":
     sql = 'SELECT count(*) as cnt FROM ' + tblname + ' where title like ' + search + ' OR author like ' + search + ' OR content like ' + search;
-
     break;
     case "title":
     sql = 'SELECT count(*) as cnt FROM ' + tblname + ' where title like ' + search;
