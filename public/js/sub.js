@@ -13,7 +13,7 @@ exports.view = function(request, response) {
   } else if (tbl == 'history') {
     sql = "SELECT * FROM history";
     db.query(sql, function(error, result) {
-      sql = "SELECT year FROM publication WHERE tblname='journals' GROUP BY year ORDER BY year DESC";
+      sql = "SELECT year FROM history GROUP BY year ORDER BY year DESC";
       db.query(sql, function(error, result_year) {
         response.render('sub', {session : request.session, data : result, year : result_year, tbl : tbl});
         });
