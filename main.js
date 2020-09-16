@@ -158,11 +158,12 @@ app.get('/loginfail', function(request, response){
 });
 
 app.use((req, res, next) => { // 404 처리 부분
-  response.writeHead(404,{'Content-Type':'text/html;charset=UTF-8'});
-  fs.createReadStream("./html/404_error.html").pipe(response);});
+  res.status(404).sendFile(path.resolve(__dirname, "public", 'html/404_error.html'));
+});
 
 app.use((err, req, res, next) => {
-  response.writeHead(500,{'Content-Type':'text/html;charset=UTF-8'});
-  fs.createReadStream("./html/500_error.html").pipe(response);});
+  console.log(err);
+  res.status(500).send("<h1>서버에서 에러가 발생했습니다. 이 상태가 계속 발생될 경우 관리자에게 문의해주세요.</h1>");
+});
 
 app.listen(port, () => console.log(`CUSTOM LAB WEB listening on port ${port}!`))
