@@ -2,6 +2,21 @@
 <head>
   <%- include ("head.ejs") %>
 </head>
+<script type="text/javascript">
+switch (<%= type %>) {
+  case "total":
+  document.getElementById("titlehighliter").contains("<%= spl %>").css({background-color:yellow});
+  document.getElementById("namehighliter").contains("<%= spl %>").css({background-color:yellow});
+    break;
+    case "title":
+    document.getElementById("titlehighliter").contains("<%= spl %>").css({background-color:yellow});
+      break;
+      case "name":
+      document.getElementById("namehighliter").contains("<%= spl %>").css({background-color:yellow});
+        break;
+  default:
+}
+</script>
 <body leftmargin="0" topmargin="0">
 <DIV ID="objContents">
 <%- include ("ddScript.ejs") %>
@@ -66,15 +81,15 @@
     <td>&nbsp;</td>
         <td align="left" style="padding:8px 0; ">
 				<a href="./board_view.ejs?tbl=<%= tbl %>&id=<%= data[i].id %>">
-		<%= data[i].title %> </span>
+		<span id="titlehighliter"><%= data[i].title %> </span>
 		</a>
 						    </td>
     <td>&nbsp;</td>
-    <td> <%= data[i].author %> </td>
+    <td><span id="namehighliter"> <%= data[i].author %> </span></td>
     <td>&nbsp;</td>
-    <td> <%= data[i].date %>  </td>
+    <td><%= data[i].date %></td>
     <td>&nbsp;</td>
-    <td> <%= data[i].hit %> </td>
+    <td><%= data[i].hit %></td>
     <td>&nbsp;</td>
       </tr>
   <tr>

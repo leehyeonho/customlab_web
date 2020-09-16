@@ -164,11 +164,8 @@ exports.search = function(request, response) {
   var totalCount = 0;
   var search = "\"%" + request.body.search + "%\"";
   var type = request.body.findType;
-  console.log(type);
-  console.log(search);
   var tbl = request.body.tbl;
   var tblname = "";
-  console.log(tbl);
   if(tbl == "1") {
     tblname = "bbs_notice";
   } else if(tbl == "2") {
@@ -191,13 +188,8 @@ exports.search = function(request, response) {
     break;
     default:
   }
-  console.log(sql);
   db.query(sql, function(error, result) {
-    if(result != null) {
-      totalCount = 0;
-    } else {
       totalCount = result[0].cnt;
-    }
   });
   switch (type) {
     case "total":
@@ -225,7 +217,7 @@ exports.search = function(request, response) {
         endPage = totalPage;
       }
       endPage = parseInt(endPage);
-      response.render('board_search', {session : request.session, totalCount : totalCount, pageNum : 1, start : startPage, end : endPage, data : results, tbl : tbl});
+      response.render('board_search', {session : request.session, totalCount : totalCount, pageNum : 1, start : startPage, end : endPage, data : results, tbl : tbl, spl : request.body.search, type : type});
 	});
 }
 
