@@ -100,7 +100,6 @@ app.post('/delete', function(request, response){
 
 app.get('/board_write.ejs', function(request, response) {
   response.render('board_write', {session: request.session, tbl : request.query.tbl});
-
 });
 
 app.post('/search', function(request, response) {
@@ -133,6 +132,10 @@ app.post('/signup', function(request, response){
 
 app.post('/upload', upload.single('imgFile'), function(request, response){
   board.upload(request, response);
+});
+
+app.get('/years', function(request, response) {
+  board.history(request, response);
 });
 
 app.get('/complete', function(request, response){
