@@ -158,7 +158,7 @@ app.get('/loginfail', function(request, response){
 });
 
 app.use((req, res, next) => { // 404 처리 부분
-  res.status(404).send('<H1>일치하는 주소가 없습니다! 주소를 확인해주세요.</H1>');
+  res.status(404).send('<H1>잘못된 주소입니다. 주소를 확인해주세요.</H1>');
 });
 
 app.use((err, req, res, next) => {
