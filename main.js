@@ -157,8 +157,13 @@ app.get('/loginfail', function(request, response){
   fs.createReadStream("./html/loginfail.html").pipe(response);
 });
 
+app.get('/404_error', function(request, response){
+  response.writeHead(200,{'Content-Type':'text/html;charset=UTF-8'});
+  fs.createReadStream("./html/404_error.html").pipe(response);
+});
+
 app.use((req, res, next) => { // 404 처리 부분
-  res.status(404).redirect('./html/404_error.html');
+  res.status(404).redirect('/404_error');
 });
 
 app.use((err, req, res, next) => {
