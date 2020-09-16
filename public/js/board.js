@@ -222,14 +222,7 @@ exports.search = function(request, response) {
 }
 
 
-exports.history = function(request, response) {
-  var year = request.query.year;
-  console.log(year);
-  sql = 'SELECT * FROM histroy WHERE year = ?';
-  db.query(sql, [year], function(error, result) {
-      response.render('years', {session : request.session, data : result});
-  });
-}
+
 
 
 // else if(tbl == 'product') {

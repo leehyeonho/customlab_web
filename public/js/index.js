@@ -24,7 +24,10 @@ exports.index = function(request, response) {
       sql = 'SELECT id, title, img, date_format(date, "%Y") as YYYY, date_format(date, "%m-%d") as mmdd FROM bbs_gallery ORDER BY id DESC LIMIT 0, 2';
     }
     db.query(sql, function(err, result_gallery) {
-      response.render('index', {session : request.session, data_notice : result_notice, data_gallery : result_gallery});
+      sql = 'SELECT * FROM product';
+      db.query(sql, function(err, result_product) {
+        response.render('index', {session : request.session, data_notice : result_notice, data_gallery : result_gallery, data_product : result_product});
+      });
     });
   });
 
