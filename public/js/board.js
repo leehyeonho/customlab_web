@@ -221,6 +221,16 @@ exports.search = function(request, response) {
 	});
 }
 
+
+exports.history = function(request, response) {
+  var year = request.query.year;
+  sql = 'SELECT * FROM histroy WHERE year = ?';
+  db.query(sql, function(error, result) {
+      response.render('years', {session : request.session, data : result});
+  });
+}
+
+
 // else if(tbl == 'product') {
 //  sql = "SELECT * FROM product ORDER BY id DESC";
 //  db.query(sql, function(error, result) {
