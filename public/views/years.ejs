@@ -10,27 +10,21 @@
 </script>
 <body>
   <div id="boardContent">
+<% for(var i = 0;i<data.length;i++) { %>
 	   <table width="100%" cellpadding="0" cellspacing="0" border="0" class="pub_table mt40">
 			<colgroup>
         <col width="6%">
         <col width="*">
               </colgroup>
-				<tr>
-				<th>3</th>
+        <tr>
+				<th><%= i %></th>
 				<td>
 					<p class="pint01">
-										탄소나노튜브를 포함하는 나노복합막 및 그 제조방법
+										<%= data[i].month %>
+                    <br>
+                    <%= data[i].content %>
           </p>
-
-					<div id="DivContents" style="width:767px;word-break:break-all;" class="mt5">
-						<p>
-              <span style="font-family: tahoma;">&#65279;이종찬, 서희란, 공새롬</span>
-            </p>
-            <p>
-              <span style="font-family: tahoma;">출원, 10-2020-0037515, 대한민국, 2020.03.27</span>
-            </p>
-          </div>
-        </td>
+          </td>
 				</tr>
 								</table>
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
@@ -49,6 +43,7 @@
 						</td>
 		</tr>
 	</table>
+<% } %>
 </div>
 <style type="text/css">
 .year_tab{width:100%; margin:0 auto; position:relative; overflow:hidden;}
