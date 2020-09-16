@@ -23,11 +23,11 @@ exports.view = function(request, response) {
   }
 }
 
-exports.publication = function(request, response) {
-  var tbl = request.query.tbl;
+exports.history = function(request, response) {
   var year = request.query.year;
-  sql = "SELECT * FROM publication WHERE tblname = '" + tbl + "' and year = " + year + " ORDER BY id";
-  db.query(sql, function(error, result) {
-    response.render('publication', {session : request.session, data : result, tbl : tbl});
-    });
+  console.log(year);
+  sql = 'SELECT * FROM histroy WHERE year = ?';
+  db.query(sql, [year], function(error, result) {
+      response.render('years', {session : request.session, data : result});
+  });
 }

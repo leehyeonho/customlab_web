@@ -135,7 +135,7 @@ app.post('/upload', upload.single('imgFile'), function(request, response){
 });
 
 app.get('/years', function(request, response) {
-  board.history(request, response);
+  sub.history(request, response);
 });
 
 app.get('/complete', function(request, response){
