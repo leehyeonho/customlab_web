@@ -129,11 +129,16 @@
 		<div class="year_tab">
 			<div class="year_tab_inWrap">
 				<ul class="year_tab_list" style="width: 1785px; left: 0px;">
-					<li>
-					<!-- <a href="/bbs/board.php?tbl=patent&category=2020" > -->
-					<a href="javascript:iframe_url('/years?year=2020');" class="on">
-					2020</a>
-					</li>
+					<% for (var i = 0; i < year.length; i++) { %>
+						<li>
+						<a href="javascript:iframe_url('/years?year=<%= year[i].year %>');"
+							<% if(i==0) { %>
+								class="on"
+							<% } %>
+							>
+						<%= year[i].year %></a>
+						</li>
+					<% } %>
 				</ul>
 			</div>
 			<p class="prev_btn"><img src="/images/pro_btn.jpg" alt=""></p>
