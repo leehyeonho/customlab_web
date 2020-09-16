@@ -158,7 +158,7 @@ app.get('/loginfail', function(request, response){
 });
 
 app.use((req, res, next) => { // 404 처리 부분
-  res.status(404).sendFile(path.resolve(__dirname, "public", 'html/404_error.html'));
+  res.status(404).redirect('html/404_error.html');
 });
 
 app.use((err, req, res, next) => {
