@@ -1,6 +1,24 @@
 <html>
-<style media="screen">
-  body {
+<head>
+<title>ERROR!</title>
+<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Semi+Condensed:100,200,300,400" rel="stylesheet">
+</head>
+<script type="text/javascript">
+  $(function() {
+  setTimeout(function(){
+    $('body').removeClass('loading');
+  }, 1000);
+});
+</script>
+<style>
+  /**/
+:root {
+  --main-color: #eaeaea;
+  --stroke-color: black;
+
+}
+/**/
+body {
   background: var(--main-color);
 }
 h1 {
@@ -133,17 +151,6 @@ h1, h2 {
   -webkit-animation: anticlockwise 3s linear infinite;
 }
 </style>
-<head>
-<title>ERROR!</title>
-<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Semi+Condensed:100,200,300,400" rel="stylesheet">
-</head>
-<script type="text/javascript">
-  $(function() {
-  setTimeout(function(){
-    $('body').removeClass('loading');
-  }, 1000);
-});
-</script>
 <body class="loading">
   <h1>500</h1>
   <h2>서버에서 오류가 발생했습니다 <b>:(</b></h2>
