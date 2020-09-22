@@ -10,7 +10,7 @@ var moment = require('moment');
 function timeStampFormat() {
     return moment().format('YYYY-MM-DD HH:mm:ss.SSS ZZ');
 };
-var logger = new (winston.Logger)({
+var logger = new (winston.createLogger)({
     transports: [
         new (winstonDaily)({
             name: 'info-file',
