@@ -1,5 +1,6 @@
 var db = require('./connection.js');
 const ejs = require('ejs');
+
 var sql = '';
 
 exports.home = function(request, response) {
