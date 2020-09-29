@@ -77,8 +77,9 @@ function delete() {
                 <td  style="word-break:break-all;padding:15px;">
                 <div id="DivContents" style="line-height:1.4;word-break:break-all;">
                   <% if(tbl == "2") { %>
-                  <% for(var i  = 0;i<images.length;i++) {%>
+                  <% for(var i  = 0;i<images.length;i++) { %>
                   <img src="<%= images[i].dir %>" border="0">
+                  <br>
                   <br>
                   <% } %>
                   <% } %>
