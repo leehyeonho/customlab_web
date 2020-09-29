@@ -111,8 +111,10 @@ exports.view = function(request, response) {
       sql = 'SELECT id, title FROM bbs_free WHERE id > ? ORDER BY id LIMIT 1';
     }
     db.query(sql, [request.query.id], function(error, next) {
-
-    response.render('board_view', {session : request.session, data : result, tbl : tbl, pre : pre, next : next, id : request.query.id});
+      sql = "SELECT dir FROM image WHERE id = ? AND tbl = ?";
+      db.query(sql, [request.query.id, tbl], function(error, images) {
+      response.render('board_view', {session : request.session, data : result, tbl : tbl, pre : pre, next : next, id : request.query.id, images : images});
+      });
     });
     });
     });

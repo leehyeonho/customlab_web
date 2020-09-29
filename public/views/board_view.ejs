@@ -77,8 +77,10 @@ function delete() {
                 <td  style="word-break:break-all;padding:15px;">
                 <div id="DivContents" style="line-height:1.4;word-break:break-all;">
                   <% if(tbl == "2") { %>
-                  <img src="<%= data[0].img %>" border="0">
+                  <% for(var i  = 0;i<images.length;i++) {%>
+                  <img src="<%= images[i].dir %>" border="0">
                   <br>
+                  <% } %>
                   <% } %>
                   <%- data[0].content.replace(/<p>/gi, '').replace(/<\/p>/gi, '') %>
                 </div>
