@@ -51,8 +51,8 @@ $(document).ready(function(){
     comSubmit.submit();
   }
   function fn_addFile(){
-    var str = "<p><input type='file' name='imgFile"+(gfv_count++)+"'><a href='#this' class='btn' name='delete'>삭제</a></p>";
-    $("#filebox").append(str);
+    var str = "<p><input type='file' name='file_"+(gfv_count++)+"'><a href='#this' class='btn' name='delete'>삭제</a></p>";
+    $("#fileDiv").append(str);
     $("a[name='delete']").on("click", function(e){ //삭제 버튼
       e.preventDefault();
       fn_deleteFile($(this));
@@ -130,7 +130,7 @@ $(document).ready(function(){
   <textarea id="content" name="content" cols="58" rows="18">
   </textarea>
   <% if(tbl == "2") { %>
-    <div class="filebox" id="filebox">
+    <div class="filebox">
       <input type="file" name="imgFile" id="imgFile">
     </div>
   <% } %>
@@ -151,7 +151,6 @@ $(document).ready(function(){
                                   </td>
   </tr>
 </table>
-<input type="button" class="bbs_btn" id="addFile" value="파일 추가"/>
 <input type="submit" class="bbs_btn" value="글쓰기"/>
 </form>
 <br>
