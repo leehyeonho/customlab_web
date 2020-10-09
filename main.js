@@ -130,7 +130,7 @@ app.post('/signup', function(request, response){
   user.signup(request, response);
 });
 
-app.post('/upload', upload.single('imgFile'), function(request, response){
+app.post('/upload', upload.array('imgFile'), function(request, response){
   board.upload(request, response);
 });
 
