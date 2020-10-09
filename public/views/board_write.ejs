@@ -20,7 +20,30 @@ function frm_check(tbl) {
   else return true;
 }
 </script>
-
+<script type="text/javascript">
+var gfv_count = 1;
+$(document).ready(function(){
+  $("#addFile").on("click", function(e){ //파일 추가 버튼
+    e.preventDefault();
+    fn_addFile();
+  });
+  $("a[name='delete']").on("click", function(e){ //삭제 버튼
+      e.preventDefault();
+      fn_deleteFile($(this));
+    });
+  });
+  function fn_addFile(){
+    var str = "<p><input type='file' name='imgFile"+(gfv_count++)+"'><a href='#this' class='btn' name='delete'>삭제</a></p>";
+    $("#filebox").append(str);
+    $("a[name='delete']").on("click", function(e){ //삭제 버튼
+      e.preventDefault();
+      fn_deleteFile($(this));
+    });
+  }
+  function fn_deleteFile(obj){
+    obj.parent().remove();
+  }
+  </script>
 <body leftmargin="0" topmargin="0">
 <DIV ID="objContents">
 <%- include ("ddScript.ejs") %>
