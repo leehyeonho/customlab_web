@@ -33,7 +33,7 @@ $(document).ready(function(){
     });
   });
   function fn_addFile(){
-    var str = "<p><input type='file' name='imgFile' id='imgFile'><a href='#this' class='btn' name='delete'>삭제</a></p>";
+    var str = "<p><input type='file' name='imgFile'><a href='#this' class='btn' name='delete'>삭제</a></p>";
     $("#filebox").append(str);
     $("a[name='delete']").on("click", function(e){ //삭제 버튼
       e.preventDefault();
@@ -113,7 +113,7 @@ $(document).ready(function(){
   </textarea>
   <% if(tbl == "2") { %>
     <div class="filebox" id="filebox">
-      <input type="file" name="imgFile" id="imgFile">
+      <input type="file" name="imgFile">
     </div>
   <% } %>
     <script>
