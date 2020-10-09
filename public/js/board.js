@@ -70,7 +70,7 @@ exports.upload = function(request, response) {
   var title = request.body.title;
   var content = request.body.content;
   sql = 'INSERT INTO bbs_gallery(author, title, content, img) values (?, ?, ?, ?)';
-  db.query(sql, [author, title, content, request.file[0].path.substring(6)], function(error, result) {
+  db.query(sql, [author, title, content, request.files[0].path.substring(6)], function(error, result) {
     if(error) {
       console.log(error);
     }else {
