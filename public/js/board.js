@@ -74,8 +74,22 @@ exports.upload = function(request, response) {
     if(error) {
       console.log(error);
     }else {
-      console.log("post")
-  	  response.redirect('/board.ejs?tbl=2&pageNum=1');
+      int gid;
+      sql = 'SELECT SCOPE_IDENTITY() as scope FROM bbs_gallery';
+      db.query(sql, function(error, scope) {
+        gid = scope[0].scope;
+      });
+    sql = 'INSERT INTO image(tbl, id, dir) values (?, ?, ?)';
+    db.query(sql, ['2', gid, request.file.path.substring(6)], function(error, result) {
+      if(error) {
+        console.log(error);
+      }else {
+        console.log("post")
+        console.log(request.file)
+        console.log(request.file.path.substring(6))
+        response.redirect('/board.ejs?tbl=2&pageNum=1');
+      }
+      });
   	}
     });
 }

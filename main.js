@@ -30,20 +30,20 @@ cb(null, Date.now() + "-" + file.originalname)
 //파일 업로드 모듈
 var upload = multer({ storage: storage })
 
-// var options = {
-//     host      : 'localhost',
-//     port:3306,
-//     user      : 'root',
-//     password  : 'genesys11',
-//     database  : 'genesys'
-// };
 var options = {
     host      : 'localhost',
     port:3306,
     user      : 'root',
-    password  : 'customlab11',
-    database  : 'customlab'
+    password  : 'genesys11',
+    database  : 'genesys'
 };
+// var options = {
+//     host      : 'localhost',
+//     port:3306,
+//     user      : 'root',
+//     password  : 'customlab11',
+//     database  : 'customlab'
+// };
 
 var sessionStore = new MySQLStore(options);
 app.use(cookieParser());
