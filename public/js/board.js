@@ -66,32 +66,56 @@ exports.write = function(request, response) {
 }
 
 exports.upload = function(request, response) {
+  console.log(request.files);
   var author = request.body.author;
   var title = request.body.title;
   var content = request.body.content;
-  sql = 'INSERT INTO bbs_gallery(author, title, content, img) values (?, ?, ?, ?)';
-  db.query(sql, [author, title, content, request.files[0].path.substring(6)], function(error, result) {
-    if(error) {
-      console.log(error);
-    }else {
-      int gid;
-      sql = 'SELECT SCOPE_IDENTITY() as scope FROM bbs_gallery';
-      db.query(sql, function(error, scope) {
-        gid = scope[0].scope;
-      });
-    sql = 'INSERT INTO image(tbl, id, dir) values (?, ?, ?)';
-    db.query(sql, ['2', gid, request.file.path.substring(6)], function(error, result) {
-      if(error) {
-        console.log(error);
-      }else {
-        console.log("post")
-        console.log(request.file)
-        console.log(request.file.path.substring(6))
-        response.redirect('/board.ejs?tbl=2&pageNum=1');
-      }
-      });
-  	}
-    });
+  var tbl = request.body.tbl;
+  if(request.files.length == 0) {
+    response.redirect('/alert?key=nofile');
+  } else {
+    if( tbl == 1) {
+      sql = 'INSERT INTO bbs_notice(author, title, content, img) values (?, ?, ?, ?)';
+      db.query(sql, [author, title, content, request.files[0].path.substring(6)], function(error, result) {
+        if(error) {
+          console.log(error);
+        }else {
+          sql = 'SELECT MAX(id) as max FROM bbs_notice';
+          db.query(sql, function(error, res) {
+            sql = 'INSERT INTO image(tbl, id, dir) values (?, ?, ?)';
+            for (var i = 0; i < request.files.length; i++) {
+              db.query(sql, [tbl, res[0].max, request.files[i].path.substring(6)], function(error, result) {
+                if(error) {
+                  console.log(error);
+                }
+              });
+            }
+            response.redirect('/board.ejs?tbl=1&pageNum=1');
+          });
+        }
+        });
+    } else {
+      sql = 'INSERT INTO bbs_gallery(author, title, content, img) values (?, ?, ?, ?)';
+      db.query(sql, [author, title, content, request.files[0].path.substring(6)], function(error, result) {
+        if(error) {
+          console.log(error);
+        }else {
+          sql = 'SELECT MAX(id) as max FROM bbs_gallery';
+          db.query(sql, function(error, res) {
+            sql = 'INSERT INTO image(tbl, id, dir) values (?, ?, ?)';
+            for (var i = 0; i < request.files.length; i++) {
+              db.query(sql, [tbl, res[0].max, request.files[i].path.substring(6)], function(error, result) {
+                if(error) {
+                  console.log(error);
+                }
+              });
+            }
+            response.redirect('/board.ejs?tbl=2&pageNum=1');
+          });
+        }
+        });
+    }
+  }
 }
 
 exports.view = function(request, response) {
