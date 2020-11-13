@@ -27,8 +27,21 @@ cb(null, Date.now() + "-" + file.originalname)
 }
 
 })
+
+var storage_gallery = multer.diskStorage({
+destination: function (req, file, cb) {
+cb(null, './public/images/gallery/')
+},
+//파일이름 설정
+filename: function (req, file, cb) {
+cb(null, Date.now() + "-" + file.originalname)
+}
+
+})
+
 //파일 업로드 모듈
 var upload = multer({ storage: storage })
+var upload_g = multer({ storage: storage_gallery })
 
 // var options = {
 //     host      : 'localhost',
