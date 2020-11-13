@@ -179,7 +179,7 @@ app.get('/loginfail', function(request, response){
 
 app.get('/alert', function(request, response){
     response.writeHead(200,{'Content-Type':'text/html;charset=UTF-8'});
-    fs.createReadStream("./alert.html").pipe(response);
+    fs.createReadStream("./html/alert.html").pipe(response);
 });
 
 app.get('/404_error', function(request, response){
