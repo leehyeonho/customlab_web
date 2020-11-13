@@ -130,7 +130,14 @@ app.post('/signup', function(request, response){
   user.signup(request, response);
 });
 
-app.post('/upload', upload.array('imgFile'), function(request, response){
+app.post('/upload', upload_g.array('imgFile'), function(request, response){
+  if(request.files.length == 0) {
+    if(request.body.tbl == 2) {
+      response.redirect('/alert?key=nofile&tbl=2');
+    } else {
+      board.write(request, response);
+    }
+  } else
   board.upload(request, response);
 });
 

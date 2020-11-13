@@ -13,9 +13,6 @@ function frm_check(tbl) {
     alert("내용을 입력해주세요.");
     CKEDITOR.instances['content'].focus();
     return false;
-  } else if(tbl == "2" && !write.imgFile.value) {
-    alert("파일을 선택해주세요.");
-    return false;
   }
   else return true;
 }
@@ -113,7 +110,7 @@ $(document).ready(function(){
   </textarea>
   <% if(tbl == "2") { %>
     <div class="filebox" id="filebox">
-      <input type="file" name="imgFile">
+      <input type="file" name="imgFile" id="imgFile">
     </div>
   <% } %>
     <script>
