@@ -146,7 +146,7 @@ app.post('/signup', function(request, response){
 app.post('/upload', upload_g.array('imgFile'), function(request, response){
   if(request.files.length == 0) {
     if(request.body.tbl == 2) {
-      response.redirect('/html/alert?key=nofile&tbl=2');
+      response.redirect('/alert?key=nofile&tbl=2');
     } else {
       board.write(request, response);
     }
@@ -175,6 +175,11 @@ app.get('/signup', function(request, response){
 app.get('/loginfail', function(request, response){
   response.writeHead(200,{'Content-Type':'text/html;charset=UTF-8'});
   fs.createReadStream("./html/loginfail.html").pipe(response);
+});
+
+app.get('/alert', function(request, response){
+    response.writeHead(200,{'Content-Type':'text/html;charset=UTF-8'});
+    fs.createReadStream("./alert.html").pipe(response);
 });
 
 app.get('/404_error', function(request, response){
