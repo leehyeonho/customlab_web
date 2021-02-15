@@ -40,6 +40,7 @@ exports.view = function(request, response) {
           .then(res => naver);
         });
         console.log(naver);
+        response.render('sub', {session : request.session, data : result, tbl : tbl});
   } else if (tbl == 'history') {
     sql = "SELECT * FROM history";
     db.query(sql, function(error, result) {
