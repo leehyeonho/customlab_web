@@ -18,10 +18,9 @@ exports.view = function(request, response) {
   var tbl = request.query.tbl;
   var sql = "";
   if(tbl == 'product') {
-    var naver;
     sql = 'SELECT * FROM product';
       db.query(sql, function(error, result) {
-        naver = getHtml()
+        getHtml()
           .then(html => {
             let ulList = [];
             const $ = cheerio.load(html.data);
@@ -36,10 +35,10 @@ exports.view = function(request, response) {
             });
             const data = ulList.filter(n => n.title);
             return data;
-          });
+          })
+          .then(response.render('sub', {session : request.session, data : result, naver : res, tbl : tbl}));
         });
-        console.log(naver);
-        response.render('sub', {session : request.session, data : result, tbl : tbl});
+
   } else if (tbl == 'history') {
     sql = "SELECT * FROM history";
     db.query(sql, function(error, result) {
