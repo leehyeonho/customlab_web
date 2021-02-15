@@ -126,7 +126,7 @@ getHtml()
           // date: $(this).find('span.p-time').text()
       };
     });
-
+    console.log("제발 좀 되라");
     const data = ulList.filter(n => n.title);
     return data;
   })
