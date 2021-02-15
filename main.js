@@ -112,7 +112,7 @@ app.get(
   "/kakao/callback",
   passport.authenticate("kakao", {
     successRedirect: "/",
-    failureRedirect: "/api/auth/fail"
+    failureRedirect: "/sub.ejs?tbl=info"
   })
 );
 
