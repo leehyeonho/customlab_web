@@ -5,16 +5,16 @@ const passport = require('passport');
 const request = require('request');
 
 // kakao
-// const KakaoStrategy = require('passport-kakao').Strategy;
+const KakaoStrategy = require('passport-kakao').Strategy;
 
-// passport.use('kakao', new KakaoStrategy({
-//     clientID: '4aaf1a669526ce81793050bf7267a81c',
-//     callbackURL: '/auth/kakao/callback',     // 위에서 설정한 Redirect URI
-//   }, async (accessToken, refreshToken, profile, done) => {
-//     //console.log(profile);
-//     console.log(accessToken);
-//     console.log(refreshToken);
-// }))
+passport.use('kakao', new KakaoStrategy({
+    clientID: '4aaf1a669526ce81793050bf7267a81c',
+    callbackURL: '/oauth',     // 위에서 설정한 Redirect URI
+  }, async (accessToken, refreshToken, profile, done) => {
+    //console.log(profile);
+    console.log(accessToken);
+    console.log(refreshToken);
+}))
 
 // const favicon = require('serve-favicon');
 app.use(bodyParser.urlencoded({extended: true}));
@@ -107,14 +107,14 @@ app.get('/', function(request, response) {
 });
 
 // //kakao
-// app.get("/kakao", passport.authenticate("kakao"));
-// app.get(
-//   "/kakao/callback",
-//   passport.authenticate("kakao", {
-//     successRedirect: "/",
-//     failureRedirect: "/sub.ejs?tbl=info"
-//   })
-// );
+app.get("/kakao", passport.authenticate("kakao"));
+app.get(
+  "/oauth",
+  passport.authenticate("kakao", {
+    successRedirect: "/",
+    failureRedirect: "/sub.ejs?tbl=info"
+  })
+);
 
 app.get('/oauth', function(request, response) {
   console.log("여기로");
