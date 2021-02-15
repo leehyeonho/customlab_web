@@ -107,8 +107,8 @@ app.get('/', function(request, response) {
 });
 
 //kakao
-router.get("/kakao", passport.authenticate("kakao"));
-router.get(
+app.get("/kakao", passport.authenticate("kakao"));
+app.get(
   "/kakao/callback",
   passport.authenticate("kakao", {
     successRedirect: "/",
