@@ -116,7 +116,8 @@ getHtml()
   .then(html => {
     let ulList = [];
     const $ = cheerio.load(html.data);
-    const $bodyList = $("ul.wOWfwtMC_3").children("li.qHwcFXhj0");
+    const $bodyList = $("ul.wOWfwtMC_3._3cLKMqI7mI._7iBijuoyJl").children("li.qHwcFXhj0");
+    colsole.log($bodyList);
     $bodyList.each(function(i, elem) {
       ulList[i] = {
           title: $(this).find('a._3BkKgDHq3l').attr('href')
@@ -125,8 +126,6 @@ getHtml()
           // date: $(this).find('span.p-time').text()
       };
     });
-    console.log(ulList);
-    console.log("제발 좀 되라")
     const data = ulList.filter(n => n.title);
     return data;
   })
