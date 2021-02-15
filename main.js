@@ -116,7 +116,7 @@ getHtml()
   .then(html => {
     let ulList = [];
     const $ = cheerio.load(html.data);
-    const $bodyList = $("div._1NZ2UlBDdo ul.wOWfwtMC_3").children("li.qHwcFXhj0");
+    const $bodyList = $("ul.wOWfwtMC_3").children("li.qHwcFXhj0");
 
     $bodyList.each(function(i, elem) {
       ulList[i] = {
