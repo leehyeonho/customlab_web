@@ -96,14 +96,17 @@ function delete() {
   </tr>
   <tr>
 <% if( data[0].author == session.user_id ) { %>
-<td height="40" colspan="4" align="right">
-</td>
-<td height="40" align="right">
-  <form action="/delete" method="post" name="frm_delete" id="frm_delete">
-  <input type="hidden" id="tbl" name="tbl" value="<%= tbl %>"/>
-  <input type="hidden" id="id" name="id" value="<%= id %>" />
-  <input type="submit" class="bbs_btn" value="삭제"/>
-  </form>
+  <td height="40" colspan="2" align="right">
+  </td>
+  <td height="40" colspan="2" align="right">
+    <a href="./board_editview.ejs?tbl=<%= tbl %>&id=<%= data[0].id %>"><div class="bbs_btn">수정</div></a>
+  </td>
+  <td height="40" colspan="2" align="right">
+    <form action="/delete" method="post" name="frm_delete" id="frm_delete">
+    <input type="hidden" id="tbl" name="tbl" value="<%= tbl %>"/>
+    <input type="hidden" id="id" name="id" value="<%= id %>" />
+    <input type="submit" class="bbs_btn" value="삭제"/>
+    </form>
   </td>
 <% } %>
 <td height="40" align="right">
