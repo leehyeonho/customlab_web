@@ -21,7 +21,7 @@ exports.view = function(request, response) {
     var naver;
     sql = 'SELECT * FROM product';
       db.query(sql, function(error, result) {
-        getHtml()
+        naver = getHtml()
           .then(html => {
             let ulList = [];
             const $ = cheerio.load(html.data);
@@ -36,8 +36,7 @@ exports.view = function(request, response) {
             });
             const data = ulList.filter(n => n.title);
             return data;
-          })
-          .then(res => naver);
+          });
         });
         console.log(naver);
         response.render('sub', {session : request.session, data : result, tbl : tbl});
