@@ -240,7 +240,9 @@
 				<tbody><tr>
 					<td colspan="4" style="padding-bottom:5px;"></td>
 				</tr>
-
+				<% for(var i = 0; i<naver.length;i++) { %>
+					<%= naver[i].title %>
+				<% } %>
 				<% for(var i = 0; i<data.length;i++) { %>
 					<% if(i % 4 == 0) { %>
 						<tr>
