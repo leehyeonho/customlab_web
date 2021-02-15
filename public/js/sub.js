@@ -27,7 +27,7 @@ exports.view = function(request, response) {
             const $bodyList = $("ul.wOWfwtMC_3._3cLKMqI7mI._7iBijuoyJl").children("li.-qHwcFXhj0");
             $bodyList.each(function(i, elem) {
               ulList[i] = {
-                  title: $(this).find('a._3BkKgDHq3l').text()
+                  title: $(this).find('a._3BkKgDHq3l').text(),
                   url: $(this).find('a._3BkKgDHq3l').attr('href'),
                   image_url: $(this).find('img._25CKxIKjAk').attr('src'),
                   image_alt: $(this).find('img._25CKxIKjAk').attr('alt'),
