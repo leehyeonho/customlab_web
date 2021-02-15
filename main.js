@@ -117,7 +117,6 @@ getHtml()
     let ulList = [];
     const $ = cheerio.load(html.data);
     const $bodyList = $("ul.wOWfwtMC_3 _3cLKMqI7mI _7iBijuoyJl").children("li.qHwcFXhj0");
-    console.log($bodyList);
     $bodyList.each(function(i, elem) {
       ulList[i] = {
           title: $(this).find('strong.QNNliuiAk3').text()
@@ -126,6 +125,7 @@ getHtml()
           // date: $(this).find('span.p-time').text()
       };
     });
+    console.log(ulList);
     console.log("제발 좀 되라")
     const data = ulList.filter(n => n.title);
     return data;
