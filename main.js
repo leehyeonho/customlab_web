@@ -107,7 +107,7 @@ app.get('/', function(request, response) {
 });
 
 // //kakao
-app.get("/kakao", passport.authenticate("kakao"));
+app.get("/oauth", passport.authenticate("kakao"));
 app.get(
   "/oauth",
   passport.authenticate("kakao", {
