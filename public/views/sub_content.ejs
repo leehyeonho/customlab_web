@@ -241,9 +241,6 @@
 					<td colspan="4" style="padding-bottom:5px;"></td>
 				</tr>
 				<% for(var i = 0; i<naver.length;i++) { %>
-					<%= naver[i].title %>
-				<% } %>
-				<% for(var i = 0; i<data.length;i++) { %>
 					<% if(i % 4 == 0) { %>
 						<tr>
 					<% } %>
@@ -256,8 +253,8 @@
 										<tbody>
 											<tr>
 												<td align="center" height="150">
-													<a href="./board_view.ejs?tbl=<%= tbl %>&id=<%= data[i].id %>">
-														<img src="<%= data[i].img %>" width="150" height="150" border="0">
+													<a href="https://smartstore.naver.com<%= naver[i].url %>">
+														<img src="<%= naver[i].img_url %>" width="150" height="150" border="0" alt="<%= naver[i].image_alt">
 													</a>
 												</td>
 											</tr>
@@ -268,8 +265,11 @@
 							<tr>
 								<td height="25">
 									<div align="left" style="padding-left:5px;">
-										<a href="./board_view.ejs?tbl=<%= tbl %>&id=<%= data[i].id %>">
-											<font color="767676"><%= data[i].productName %></font>
+										<a href="https://smartstore.naver.com<%= naver[i].url %>">
+											<span><font color="767676"><%= naver[i].title %></font></span>
+											<span><font color="767676"><%= naver[i].price %></font></span>
+											<span><font color="767676"><%= naver[i].sale %></font></span>
+											<span><font color="767676"><%= naver[i].percent %></font></span>
 										</a>
 									</div>
 								</td>
