@@ -118,7 +118,7 @@ app.get('/', function(request, response) {
 
 app.get('/oauth', function(request, response) {
   console.log("여기로");
-  console.log(response.code);
+  console.log(request.code);
   // response.render('sub', {session : request.session, tbl : request.query.tbl});
 });
 
