@@ -119,7 +119,7 @@ getHtml()
     const $bodyList = $("ul.wOWfwtMC_3").children("li.qHwcFXhj0");
     $bodyList.each(function(i, elem) {
       ulList[i] = {
-          title: $(this).find('strong.QNNliuiAk3').text()
+          title: $(this).find('a._3BkKgDHq3l').attr('href')
           // image_alt: $(this).find('p.poto a img').attr('alt'),
           // summary: $(this).find('p.lead').text().slice(0, -11),
           // date: $(this).find('span.p-time').text()
