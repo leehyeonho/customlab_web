@@ -131,6 +131,10 @@ app.get('/board_editview.ejs', function(request, response){
   board.editView(request, response);
 });
 
+app.post('/edit', upload_g.array('imgFile'), function(request, response){
+  board.edit(request, response);
+});
+
 app.post('/login', function(request, response){
   user.login(request, response);
 });
