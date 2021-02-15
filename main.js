@@ -110,8 +110,9 @@ app.get('/', function(request, response) {
 app.get('/kakao', passport.authenticate('kakao'));
 
 app.get('/kakao/callback', passport.authenticate('kakao', {
-  failureRedirect: '/',
+  failureRedirect: "/api/auth/fail",
 }), (res, req) => {
+  console.log("성공");
   res.redirect('/auth');
 });
 
