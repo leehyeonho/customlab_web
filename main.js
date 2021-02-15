@@ -107,6 +107,12 @@ app.get('/', function(request, response) {
 });
 
 //kakao
+const router = express.Router();
+
+router.use('/auth', require('./public/js/auth'));
+
+module.exports = router;
+
 app.get("/kakao", passport.authenticate("kakao"));
 app.get(
   "/kakao/callback",
