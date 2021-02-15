@@ -4,6 +4,19 @@ const bodyParser = require("body-parser");
 const passport = require('passport');
 const request = require('request');
 
+// kakao
+var auth = require('./public/js/auth.js');
+const KakaoStrategy = require('passport-kakao').Strategy;
+
+passport.use('kakao', new KakaoStrategy({
+    clientID: '4aaf1a669526ce81793050bf7267a81c',
+    callbackURL: 'http://customlab.site/oauth',     // 위에서 설정한 Redirect URI
+  }, async (accessToken, refreshToken, profile, done) => {
+    //console.log(profile);
+    console.log(accessToken);
+    console.log(refreshToken);
+}))
+
 // const favicon = require('serve-favicon');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
@@ -92,6 +105,15 @@ const port = 80
 //index.html
 app.get('/', function(request, response) {
   index.index(request, response);
+});
+
+//kakao
+app.get('/kakao', passport.authenticate('kakao'));
+
+app.get('/kakao/callback', passport.authenticate('kakao', {
+  failureRedirect: '/',
+}), (res, req) => {
+  res.redirect('/auth');
 });
 
 //sub
