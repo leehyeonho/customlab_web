@@ -5,7 +5,6 @@ const passport = require('passport');
 const request = require('request');
 
 // kakao
-var auth = require('./public/js/auth.js');
 const KakaoStrategy = require('passport-kakao').Strategy;
 
 passport.use('kakao', new KakaoStrategy({
