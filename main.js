@@ -12,6 +12,7 @@ passport.use('kakao', new KakaoStrategy({
     callbackURL: '/oauth',     // 위에서 설정한 Redirect URI
   }, async (accessToken, refreshToken, profile, done) => {
     //console.log(profile);
+    console.log("성공");
     console.log(accessToken);
     console.log(refreshToken);
 }))
