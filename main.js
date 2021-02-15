@@ -116,7 +116,7 @@ getHtml()
   .then(html => {
     let ulList = [];
     const $ = cheerio.load(html.data);
-    const $bodyList = $("ul.wOWfwtMC_3._3cLKMqI7mI._7iBijuoyJl").children("li.qHwcFXhj0");
+    const $bodyList = $("ul.wOWfwtMC_3._3cLKMqI7mI._7iBijuoyJl").children("li.-qHwcFXhj0");
     $bodyList.each(function(i, elem) {
       ulList[i] = {
           title: $(this).find('a._3BkKgDHq3l').attr('href')
