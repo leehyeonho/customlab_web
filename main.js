@@ -217,10 +217,12 @@ app.get('/500_error', function(request, response){
 });
 
 app.use((req, res, next) => { // 404 처리 부분
+  console.log(req);
   res.status(404).redirect('/404_error');
 });
 
 app.use((err, req, res, next) => {
+  console.log(err);
   res.status(500).redirect('/500_error');
 });
 
