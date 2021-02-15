@@ -117,7 +117,7 @@ getHtml()
     let ulList = [];
     const $ = cheerio.load(html.data);
     const $bodyList = $("ul.wOWfwtMC_3 _3cLKMqI7mI _7iBijuoyJl").children("li.qHwcFXhj0");
-    console.log(bodyList);
+    console.log($bodyList);
     $bodyList.each(function(i, elem) {
       ulList[i] = {
           title: $(this).find('strong.QNNliuiAk3').text()
