@@ -36,7 +36,7 @@ exports.view = function(request, response) {
             const data = ulList.filter(n => n.title);
             return data;
           })
-          .then(response.render('sub', {session : request.session, data : result, naver : res, tbl : tbl}));
+          .then(res => response.render('sub', {session : request.session, data : result, naver : res, tbl : tbl}));
         });
 
   } else if (tbl == 'history') {
