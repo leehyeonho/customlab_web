@@ -37,7 +37,6 @@ exports.view = function(request, response) {
               };
             });
             const data = ulList.filter(n => n.title);
-            console.log(data);
             return data;
           })
           .then(res => response.render('sub', {session : request.session, data : result, naver : res, tbl : tbl}));
