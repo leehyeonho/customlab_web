@@ -116,13 +116,11 @@ getHtml()
   .then(html => {
     let ulList = [];
     const $ = cheerio.load(html.data);
-    const $bodyList = $("li.qHwcFXhj0");
+    const $bodyList = $("ul.wOWfwtMC_3").children("li.qHwcFXhj0");
 
     $bodyList.each(function(i, elem) {
       ulList[i] = {
-          title: $(this).find('strong.QNNliuiAk3').text(),
-          url: $(this).find('a._3BkKgDHq3l').attr('href'),
-          image_url: $(this).find('div._2JNWBGd-04 img').attr('src'),
+          title: $(this).find('strong.QNNliuiAk3').text()
           // image_alt: $(this).find('p.poto a img').attr('alt'),
           // summary: $(this).find('p.lead').text().slice(0, -11),
           // date: $(this).find('span.p-time').text()
