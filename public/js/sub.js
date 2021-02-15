@@ -18,6 +18,7 @@ exports.view = function(request, response) {
   var tbl = request.query.tbl;
   var sql = "";
   if(tbl == 'product') {
+    var naver;
     sql = 'SELECT * FROM product';
       db.query(sql, function(error, result) {
         getHtml()
@@ -36,8 +37,9 @@ exports.view = function(request, response) {
             const data = ulList.filter(n => n.title);
             return data;
           })
-          .then(res => response.render('sub', {session : request.session, data : result, naver : res, tbl : tbl}););
+          .then(res => naver);
         });
+        console.log(naver);
   } else if (tbl == 'history') {
     sql = "SELECT * FROM history";
     db.query(sql, function(error, result) {
