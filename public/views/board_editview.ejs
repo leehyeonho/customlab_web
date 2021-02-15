@@ -1,92 +1,189 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta content="text/html; charset=utf-8" />
-<title>Genesys</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<script src="./js/ckeditor/ckeditor.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR:300,400,500&display=swap&subset=korean" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript">
-//페이지가 로드되면 실행한다.
-$(document).ready( function() {
-	$("#header").load("/includeHTML/header.html");
-	$("#bottom").load("/includeHTML/bottom.html");
-});
-
-</script>
+  <%- include ("head.ejs") %>
+  <script type="text/javascript" src="/js/ckeditor/ckeditor.js"></script>
 </head>
-<body>
-<div class="wrapper">
-  <div class="content">
-    <div id="header">
-    </div>
-    <div class="img_visual">
-      <img src="images/main_img.jpg" alt="">
-    </div>
-    <div class="contentarea2">
-      <div class="sidebar">
-        <ul>
-          <li><img src="images/info.png" alt="">회사소개</li>
-          <li><a href="./board.ejs?pageNum=1">게시판</a></li>
-          <li><a href="ref_board">자료실</a></li>
-        </ul>
-      </div>
-      <div class="contentbar">
-        <div class="content_title">
-          게시판
-        </div>
-        <div class="location">
-          <%- include ("location.ejs") %>
-        </div>
-        <div class="content_main">
-          <hr>
-          <form name="edit" action="/edit" method="post">
-        	<input type="hidden" name="mode" value="W" />
-        	<table border="1" summary="게시판 등록 폼" align="center">
-        		<caption>게시판 등록 폼</caption>
-        		<colgroup>
-        			<col width="100" />
-        			<col width="300" />
-        		</colgroup>
-        		<tbody>
-        			<tr>
-        				<th >제목</th>
-        				<td align="left" colspan="3"><textarea id="title" name="title" cols="60" rows="1"><%= data[0].title %></textarea></td>
-        			</tr>
-        			<tr>
-        				<th>작성자</th>
-        				<td  align="left"><input type="text" id="author" name="author" value="<%= data[0].author %>" readonly/></td>
-                <th width="50px" align="center">글번호</th>
-                <td width="10px" ><input type="text" id="id" name="id" value="<%= data[0].id %>" size="1" style = "text-align:center;" readonly/></td>
-                </tr>
-        			<tr>
-        				<td colspan="4">
-        					<textarea id="content" name="content" cols="80" rows="18"><%- data[0].content.replace(/<p>/gi, '').replace(/<\/p>/gi, '') %></textarea>
-        					<script>
-        					CKEDITOR.replace('content');
-        					</script>
-        				</td>
-        			</tr>
-        		</tbody>
-        	</table>
+<script>
+function frm_check(tbl) {
+  if(write.title.value == "") {
+    alert("제목을 입력해주세요.");
+    write.title.focus();
+    return false;
+  } else if(CKEDITOR.instances['content'].getData() == "") {
+    alert("내용을 입력해주세요.");
+    CKEDITOR.instances['content'].focus();
+    return false;
+  }
+  else return true;
+}
+</script>
+<script type="text/javascript">
+var gfv_count = 1;
+$(document).ready(function(){
+  $("#addFile").on("click", function(e){ //파일 추가 버튼
+    e.preventDefault();
+    fn_addFile();
+  });
+  $("a[name='delete']").on("click", function(e){ //삭제 버튼
+      e.preventDefault();
+      fn_deleteFile($(this));
+    });
+  $("a[name='deleteImg']").on("click", function(e){ // 이미지 삭제 버튼
+      e.preventDefault();
+      fn_deleteImg($(this));
+    });
+  });
+  function fn_addFile(){
+    var str = "<p><input type='file' name='imgFile'><a href='#this' class='btn' name='delete'>삭제</a></p>";
+    $("#filebox").append(str);
+    $("a[name='delete']").on("click", function(e){ //삭제 버튼
+      e.preventDefault();
+      fn_deleteFile($(this));
+    });
+  }
 
-        	<p>
+  function fn_deleteFile(obj){
+    obj.parent().remove();
+  }
+  function fn_deleteImg(obj){
+    document.getElementById( obj.attr('id') ).setAttribute( 'value', 'x' )
+    obj.parent().remove();
+  }
+  </script>
+<body leftmargin="0" topmargin="0">
+<DIV ID="objContents">
+<%- include ("ddScript.ejs") %>
 
-        		<input type="submit" value="수정하기" />
-        	</p>
-        	</form>
-      		<hr>
-        </div>
-      </div>
+<div id="wrap">
+	<div id="header">
+	  <%- include ("header.ejs") %>
+	</div><!--// header -->
 
-      </div>
-			<div id="bottom">
+	<div class="location">
+	  <%- include ("location.ejs") %>
+	</div><!--// location -->
 
-			</div>
+	<div id="sub_container" class="clfix">
+		<div id="sidebar">
+		  <%- include ("sidebar.ejs") %>
+		</div><!--// sidebar -->
+
+		<div id="sub_contents">
+			<div class="contop">
+				<% if(tbl == "1") { %>
+				<h3 class="page_title">Notice</h3>
+				<% } else if (tbl == "2") { %>
+				<h3 class="page_title">Gallery</h3>
+				<% } %>
+				<p>Genesys Lab.</p>
+			</div><!--// contop -->
+			<div class="conbody">
+        <form name="write" id="write" action="/edit" method="post" enctype="multipart/form-data" onsubmit="return frm_check(<%= tbl %>);">
+        <!-- <form name="wirte" id="write" action="/write" method="post" onsubmit="return frm_check(<%= tbl %>);"> -->
+<input type="hidden" id="tbl" name="tbl" value="<%= tbl %>" />
+<input type="hidden" id="id" name="id" value="<%= data[0].id %>" />
+<input type="hidden" id="author" name="author" value="<%= session.user_name %>" />
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td height="2" bgcolor="#555" colspan="6"></td>
+  </tr>
+  <tr height="35" >
+    <td height="35" colspan="6" align="left" style="padding:5px 20px 5px 20px; font-size:14px; color:#333; word-break:break-all;">
+      <input type="text" id="title" name="title" maxlength="20" style="width:700px;" value="<%= data[0].title %>"/>
+    </td>
+  </tr>
+  <tr>
+    <td height="1" bgcolor="#dcdcdc" colspan="6"></td>
+  </tr>
+      <tr>
+    <td height="1" bgcolor="#aaaaaa" colspan="6"></td>
+  </tr>
+  <tr >
+    <td height="15" colspan="6"></td>
+  </tr>
+  <tr>
+    <td colspan="6"> </td>
+  </tr>
+  <tr>
+    <td colspan="6">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #ddd;">
+            <tr>
+                <td  style="word-break:break-all;padding:15px;">
+<div id="DivContents" style="line-height:1.4;word-break:break-all;">
+  <textarea id="content" name="content" cols="58" rows="18">
+        <%= data[0].content %>
+    </textarea>
+
+    <% for(var i = 0; i<images.length;i++) { %>
+      <input type="hidden" name="img" id="img<%= i %>" value="o">
+        <p><%= images[i].dir.slice(images[i].dir.indexOf('-')+1) %> <a href='#this' class='btn' name='deleteImg' id='img<%= i %>' value='img<%= i %>'>[삭제]</a></p>
+    <% } %>
+  <div class="filebox" id="filebox">
+    <input type="file" name="imgFile" id="imgFile">
   </div>
+  <script>
+    CKEDITOR.replace('content');
+  </script>
 </div>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="js/slide.js"></script>
+            	</td>
+            </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="5" colspan="6"></td>
+  </tr>
+  <tr>
+    <td height="40" align="center" text-align="center">
+                                  </td>
+  </tr>
+</table>
+<input type="button" class="bbs_btn" id="addFile" value="파일 추가"/>
+<input type="submit" class="bbs_btn" value="수정하기" />
+</form>
+<br>
+							<script type="text/javascript" src="/css/jquery-1.7.min.js"></script>
+
+<br>
+<br>
+<br>
+<br>
+
+<br>
+
+<script>
+function imgResize()
+{
+    // DivContents ¿µ¿ª¿¡¼­ ÀÌ¹ÌÁö°¡ maxsize º¸´Ù Å©¸é ÀÚµ¿ ¸®»çÀÌÁî ½ÃÄÑÁÜ
+    maxsize = 700; // °¡·Î»çÀÌÁî ( ´Ù¸¥°ªÀ¸·Î ÁöÁ¤ÇÏ¸éµÊ)
+    var content = document.getElementById("DivContents");
+    var img = content.getElementsByTagName("img");
+    for(i=0; i<img.length; i++)
+    {
+
+        if ( eval('img[' + i + '].width > maxsize') )
+        {
+            var heightSize = ( eval('img[' + i + '].height')*maxsize )/eval('img[' + i + '].width') ;
+            eval('img[' + i + '].width = maxsize') ;
+            eval('img[' + i + '].height = heightSize') ;
+        }
+    }
+}
+window.onload = imgResize;
+</script>			</div><!--// conbody -->
+		</div><!--// sub_contents -->
+	</div><!--// sub_container -->
+
+
+	<div id="footer">
+	  <%- include ("footer.ejs") %>
+	</div><!--// footer -->
+</div><!--// wrap -->
+
+
+</DIV>
+<DIV ID="objSelection">
+</DIV>
+
 </body>
 </html>

@@ -66,7 +66,7 @@ exports.write = function(request, response) {
 }
 
 exports.upload = function(request, response) {
-  console.log(request.files);
+  // console.log(request.files);
   var author = request.body.author;
   var title = request.body.title;
   var content = request.body.content;
@@ -118,6 +118,65 @@ exports.upload = function(request, response) {
   }
 }
 
+exports.edit = function(request, response) {
+  var author = request.body.author;
+  var title = request.body.title;
+  var content = request.body.content;
+  var tbl = request.body.tbl;
+  var id = request.body.id;
+  var arr = request.body.img;
+  console.log(arr)
+  // if(request.files.length == 0) {
+  sql = 'SELECT * FROM image WHERE tbl = ? AND id = ? ORDER BY img_id ASC';
+  db.query(sql, [tbl, id], function(error, result) {
+    var FullyDeleted = true;
+    for (var i = 0; i < result.length; i++) {
+      if(arr[i] == 'x') {
+        sql = 'DELETE FROM image WHERE tbl = ? AND img_id = ?';
+        db.query(sql, [tbl, result[i].img_id], function(error, result) {});
+      } else {
+        FullyDeleted = false;
+      }
+    }
+    if(FullyDeleted && tbl == 2) {
+      sql = 'UPDATE bbs_gallery SET img = ? where id = ?';
+    }
+    db.query(sql, ['\\images\\component\\no_image.png', id], function(error, result) {
+    });
+  });
+  if(tbl == 1) {
+    sql = 'UPDATE bbs_notice SET title = ?, content = ? where id = ?';
+    db.query(sql, [title, content, id], function(error, result) {
+        if(request.files.length != 0) {
+          sql = 'SELECT MAX(id) as max FROM bbs_notice';
+          db.query(sql, function(error, res) {
+            sql = 'INSERT INTO image(tbl, id, dir) values (?, ?, ?)';
+            for (var i = 0; i < request.files.length; i++) {
+              db.query(sql, [tbl, id, request.files[i].path.substring(6)], function(error, result) {});
+            }
+          });
+        }
+        response.redirect('/board_view.ejs?tbl='+ tbl + '&id=' + id);
+      });
+  } else {
+    sql = 'UPDATE bbs_gallery SET title = ?, content = ? where id = ?';
+    db.query(sql, [title, content, id], function(error, result) {
+        if(request.files.length != 0) {
+          sql = 'SELECT MAX(id) as max FROM bbs_gallery';
+          db.query(sql, function(error, res) {
+            sql = 'INSERT INTO image(tbl, id, dir) values (?, ?, ?)';
+            for (var i = 0; i < request.files.length; i++) {
+              db.query(sql, [tbl, id, request.files[i].path.substring(6)], function(error, result) {});
+            }
+          });
+        }
+        response.redirect('/board_view.ejs?tbl='+ tbl + '&id=' + id);
+      });
+  }
+
+}
+
+
 exports.view = function(request, response) {
   var tbl = request.query.tbl;
   if (tbl == "1") {
@@ -167,21 +226,23 @@ exports.view = function(request, response) {
 }
 
 exports.editView = function(request, response) {
-  sql = 'SELECT id, author, title, content, hit, date_format(date,"%Y-%m-%d") as date FROM bbs_free WHERE id = ?';
-  db.query(sql, [request.query.id], function(error, result) {
-    response.render('board_editview', {data : result});
-    });
-}
-
-exports.edit = function(request, response) {
-  var title = request.body.title;
-  var content = request.body.content;
+  var tbl = request.query.tbl;
   var id = request.body.id;
-  sql = 'UPDATE bbs_free SET title = ?, content = ? where id = ?';
-  db.query(sql, [title, content, id], function(error, result) {
-    response.redirect('/board_view.ejs?id=' + id);
-
+  if(tbl == 1) {
+    sql = 'SELECT id, author, title, content, hit, date_format(date,"%Y-%m-%d") as date FROM bbs_notice WHERE id = ?';
+  } else {
+    sql = 'SELECT id, author, title, content, hit, date_format(date,"%Y-%m-%d") as date FROM bbs_gallery WHERE id = ?';
+  }
+  db.query(sql, [request.query.id], function(error, result) {
+    sql = "SELECT dir FROM image WHERE id = ? AND tbl = ?";
+    db.query(sql, [request.query.id, request.query.tbl], function(error, images) {
+      sql = 'SELECT * FROM research';
+      db.query(sql, function(err, result_research) {
+        response.render('board_editview', {session : request.session, tbl : request.query.tbl, data : result, images : images, data_research : result_research});
+      });
     });
+  });
+
 }
 
 exports.delete = function(request, response) {

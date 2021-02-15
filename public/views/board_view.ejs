@@ -76,12 +76,13 @@ function delete() {
             <tr>
                 <td  style="word-break:break-all;padding:15px;">
                 <div id="DivContents" style="line-height:1.4;word-break:break-all;">
-                  <% if(tbl == "2") { %>
                   <% for(var i  = 0;i<images.length;i++) { %>
                   <img src="<%= images[i].dir %>" border="0">
                   <br>
+                  <div style="display:block;text-align:center;">
+                    <a href="<%= images[i].dir %>">이미지 크게 보기(다운로드)</a>
+                  </div>
                   <br>
-                  <% } %>
                   <% } %>
                   <%- data[0].content.replace(/<p>/gi, '').replace(/<\/p>/gi, '') %>
                 </div>
@@ -94,7 +95,7 @@ function delete() {
     <td height="5" colspan="6"></td>
   </tr>
   <tr>
-<% if( data[0].author == session.user_id ) { %>
+<% if( data[0].author == session.user_name ) { %>
 <td height="40" colspan="4" align="right">
 </td>
 <td height="40" align="right">
@@ -104,15 +105,10 @@ function delete() {
   <input type="submit" class="bbs_btn" value="삭제"/>
   </form>
   </td>
+<% } %>
 <td height="40" align="right">
 <a href="./board.ejs?tbl=<%= tbl %>&pageNum=1"><div class="bbs_btn">목록</div></a>
 </td>
-<% } else { %>
-<td height="40" colspan="6" align="right">
-<a href="./board.ejs?tbl=<%= tbl %>&pageNum=1"><div class="bbs_btn">목록</div></a>
-</td>
-
-<% } %>
   </tr>
 </table>
 <br>
