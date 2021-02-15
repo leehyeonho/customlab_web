@@ -3,6 +3,11 @@ const app = express()
 const bodyParser = require("body-parser");
 const passport = require('passport');
 const request = require('request');
+
+const axios = require("axios");
+const cheerio = require("cheerio");
+const log = console.log;
+
 // const favicon = require('serve-favicon');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
@@ -98,6 +103,36 @@ app.get('/sub.ejs', function(request, response) {
   sub.view(request, response);
   // response.render('sub', {session : request.session, tbl : request.query.tbl});
 });
+
+const getHtml = async () => {
+  try {
+    return await axios.get("https://smartstore.naver.com/customlaboratory");
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+getHtml()
+  .then(html => {
+    let ulList = [];
+    const $ = cheerio.load(html.data);
+    const $bodyList = $("div._1NZ2UlBDdo ul.wOWfwtMC_3").children("li.qHwcFXhj0");
+
+    $bodyList.each(function(i, elem) {
+      ulList[i] = {
+          title: $(this).find('strong.QNNliuiAk3').text(),
+          url: $(this).find('a._3BkKgDHq3l').attr('href'),
+          image_url: $(this).find('div._2JNWBGd-04 img').attr('src'),
+          // image_alt: $(this).find('p.poto a img').attr('alt'),
+          // summary: $(this).find('p.lead').text().slice(0, -11),
+          // date: $(this).find('span.p-time').text()
+      };
+    });
+
+    const data = ulList.filter(n => n.title);
+    return data;
+  })
+  .then(res => log(res));
 
 app.get('/board.ejs', function(request, response){
   board.home(request, response);
