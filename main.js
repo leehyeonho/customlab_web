@@ -112,7 +112,7 @@ app.get("/oauth", passport.authenticate("kakao"));
 app.get(
   "/oauth",
   passport.authenticate("kakao", {
-    successRedirect: "/",
+    successRedirect: "/sub.ejs?tbl=history",
     failureRedirect: "/sub.ejs?tbl=info"
   })
 );
