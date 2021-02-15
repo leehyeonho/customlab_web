@@ -113,15 +113,6 @@ router.use('/auth', require('./public/js/auth'));
 
 module.exports = router;
 
-app.get("/kakao", passport.authenticate("kakao"));
-app.get(
-  "/kakao/callback",
-  passport.authenticate("kakao", {
-    successRedirect: "/",
-    failureRedirect: "/sub.ejs?tbl=info"
-  })
-);
-
 //sub
 app.get('/sub.ejs', function(request, response) {
   sub.view(request, response);
