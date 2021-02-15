@@ -107,14 +107,14 @@ app.get('/', function(request, response) {
 });
 
 //kakao
-app.get('/kakao', passport.authenticate('kakao'));
-
-app.get('/kakao/callback', passport.authenticate('kakao', {
-  failureRedirect: "/api/auth/fail",
-}), (res, req) => {
-  console.log("성공");
-  res.redirect('/auth');
-});
+router.get("/kakao", passport.authenticate("kakao"));
+router.get(
+  "/kakao/callback",
+  passport.authenticate("kakao", {
+    successRedirect: "/",
+    failureRedirect: "/api/auth/fail"
+  })
+);
 
 //sub
 app.get('/sub.ejs', function(request, response) {
