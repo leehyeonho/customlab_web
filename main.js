@@ -40,9 +40,6 @@ passport.use('kakao', new KakaoStrategy({
 // const favicon = require('serve-favicon');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
-// Passport
-app.use(passport.initialize());
-app.use(passport.session());
 
 //cookie,session
 const cookieParser = require('cookie-parser');
@@ -105,6 +102,10 @@ app.use(session({
 }));
 app.use(bodyParser.urlencoded({extended: false}));
 
+// Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 // ejs
 // const ejs = require('ejs');
 
@@ -127,10 +128,10 @@ app.get('/', function(request, response) {
   index.index(request, response);
 });
 
-app.get("/oauth", passport.authenticate("kakao"));
+app.get("/kakao", passport.authenticate("kakao"));
 
 app.get(
-  "/oauth/kakao/callback",
+  "/kakao/callback",
   passport.authenticate("kakao", {
     successRedirect: "http://customlab.site/sub.ejs?tbl=history",
     failureRedirect: "http://customlab.site/sub.ejs?tbl=info"
