@@ -9,7 +9,7 @@ const KakaoStrategy = require('passport-kakao').Strategy;
 
 passport.use('kakao', new KakaoStrategy({
     clientID: '4aaf1a669526ce81793050bf7267a81c',
-    callbackURL: '/oauth/callback'     // 위에서 설정한 Redirect URI
+    callbackURL: '/oauth'     // 위에서 설정한 Redirect URI
   }, async (accessToken, refreshToken, profile, done) => {
     console.log(profile);
     // var headers = {
@@ -130,7 +130,7 @@ app.get('/', function(request, response) {
 app.get('/kakao', passport.authenticate('kakao'));
 
 app.get(
-  '/oauth/callback',
+  '/oauth',
   passport.authenticate('kakao', {
     successRedirect: "/sub.ejs?tbl=history",
     failureRedirect: "/sub.ejs?tbl=info"
