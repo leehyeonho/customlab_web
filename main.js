@@ -15,6 +15,25 @@ passport.use('kakao', new KakaoStrategy({
     console.log("성공");
     console.log(accessToken);
     console.log(refreshToken);
+
+    var headers = {
+      'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
+      'Authorization': 'Bearer ' + access_token
+    }
+
+    var options = {
+      url: "https://kapi.kakao.com/v2/user/me",
+      method: 'GET',
+      header: headers
+    }
+    request(options, function(error, response, body){
+    if (!error && response.statusCode == 200) {
+    var jsonObj = JSON.parse(body);
+    consoleLog(jsonObj.kaccount_email);
+    } else if(error) {
+    consoleLog("[error] : " + error);
+    }
+    });
 }))
 
 // const favicon = require('serve-favicon');
