@@ -149,10 +149,9 @@ app.get(
     failureRedirect: "/sub.ejs?tbl=info"
   }), (req, res) => {
     console.log(req.user.username);
-    // request.session.user_id = result[0].user_id;
- 		// request.session.user_name = result[0].user_name;
- 		// request.session.user_tell = result[0].user_tell;
- 		// request.session.isLogined = true;
+    request.session.user_id = req.user.username;
+ 		request.session.user_name = req.user.username;
+ 		request.session.isLogined = true;
     res.redirect('/');
   });
 
