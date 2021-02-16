@@ -22,7 +22,8 @@ passport.use('kakao', new KakaoStrategy({
     }
 
     var options = {
-      url: "https://kapi.kakao.com/v1/user/logout",
+      url: "/oauth/logout?client_id=4aaf1a669526ce81793050bf7267a81c&logout_redirect_uri=
+http://customlab.site/sub.ejs?tbl=info",
       method: 'GET',
       header: headers
     }
