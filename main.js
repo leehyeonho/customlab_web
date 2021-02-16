@@ -9,7 +9,7 @@ const KakaoStrategy = require('passport-kakao').Strategy;
 
 passport.use('kakao', new KakaoStrategy({
     clientID: '4aaf1a669526ce81793050bf7267a81c',
-    callbackURL: 'http://customlab.site/oauth'     // 위에서 설정한 Redirect URI
+    callbackURL: 'http://customlab.site/oauth/callback'     // 위에서 설정한 Redirect URI
   }, async (accessToken, refreshToken, profile, done) => {
     //console.log(profile);
     console.log("성공");
@@ -130,19 +130,10 @@ app.get('/', function(request, response) {
   index.index(request, response);
 });
 
-app.get("/oauth", passport.authenticate("kakao"), function (request, response) {
-  console.log("여기가 맞아?");
-});
-
-app.get('/oauth', function(request, response) {
-  passport.authenticate("kakao");
-  console.log(request.accessToken);
-  response.redirect('/sub.ejs?tbl=org');
-});
-// //kakao
+app.get("/oauth", passport.authenticate("kakao"));
 
 app.get(
-  "/oauth",
+  "/oauth/callback",
   passport.authenticate("kakao", {
     successRedirect: "http://customlab.site/sub.ejs?tbl=history",
     failureRedirect: "http://customlab.site/sub.ejs?tbl=info"
