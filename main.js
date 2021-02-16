@@ -129,15 +129,11 @@ const port = 80
 app.get('/', function(request, response) {
   index.index(request, response);
 });
-
-// //kakao
-app.get('/oauth', function(request, response){
-  passport.authenticate("kakao", {
-    successRedirect: "http://customlab.site/sub.ejs?tbl=history",
-    failureRedirect: "http://customlab.site/sub.ejs?tbl=info"
-  });
+app.get('/oauth', function(request, response) {
+  console.log(request.accessToken);
+  response.redirect('/sub.ejs?tbl=org');
 });
-
+// //kakao
 app.get("/oauth", passport.authenticate("kakao"));
 app.get(
   "/oauth",
@@ -146,6 +142,8 @@ app.get(
     failureRedirect: "http://customlab.site/sub.ejs?tbl=info"
   })
 );
+
+
 
 //sub
 app.get('/sub.ejs', function(request, response) {
