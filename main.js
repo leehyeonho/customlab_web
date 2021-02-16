@@ -146,10 +146,13 @@ app.get('/kakao', passport.authenticate('kakao'));
 app.get(
   '/oauth',
   passport.authenticate('kakao', {
-    successRedirect: "/sub.ejs?tbl=history",
     failureRedirect: "/sub.ejs?tbl=info"
   }), (req, res) => {
-    console.log("살려줘");
+    console.log(req.profile);
+    // request.session.user_id = result[0].user_id;
+ 		// request.session.user_name = result[0].user_name;
+ 		// request.session.user_tell = result[0].user_tell;
+ 		// request.session.isLogined = true;
     res.redirect('/');
   });
 
