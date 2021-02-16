@@ -146,7 +146,7 @@ exports.logout = function ( request, response ){
     //   }
     // });
   }
-  if (req.isAuthenticated()) {
+  if (request.isAuthenticated()) {
     console.log("로그인되어있음");
   } else {
     console.log("로그인 안되있음");
