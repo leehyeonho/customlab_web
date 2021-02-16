@@ -3,10 +3,12 @@
 			<div class="top_menu clfix">
 				<form action="/login" method="post" name="frm_login" id="frm_login">
 				<% if ( session.isLogined == true ) { %>
-                                  <span style="line-height:20px;">
-				    <strong><%= session.user_name %></strong>님<br>
 						<% if (session.iskakao) { %>
-								Login with Kakao
+							<span style="line-height:20px;">
+<strong><%= session.user_name %></strong>님<br>Login with Kakao
+						<% } else { %>
+							<span>
+							<strong><%= session.user_name %></strong>님<br>
 						<% } %>
 				  </span>
 				  <span class="tm3">
