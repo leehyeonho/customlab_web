@@ -9,9 +9,15 @@ const KakaoStrategy = require('passport-kakao').Strategy;
 
 passport.use('kakao', new KakaoStrategy({
     clientID: '4aaf1a669526ce81793050bf7267a81c',
-    callbackURL: '/oauth'     // 위에서 설정한 Redirect URI
+    callbackURL: '/oauth',     // 위에서 설정한 Redirect URI
   }, async (accessToken, refreshToken, profile, done) => {
-    console.log(profile);
+    try {
+      console.log(profile);
+      done(null, profile);
+    } catch (error) {
+      console.error(error);
+      done(error);
+    }
     // var headers = {
     //   'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
     //   'Authorization': 'Bearer ' + accessToken
