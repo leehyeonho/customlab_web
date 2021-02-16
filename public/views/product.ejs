@@ -5,7 +5,7 @@
 <% for (var i = 0; i < data_product.length; i++) { %>
 <% if(i>1) {break;} %>
 <li>
-<a href="/bbs/board.php?tbl=journals">
+<a href="sub.ejs?tbl=product">
 <span class="btn_more_cont">MORE &gt;</span>
 <dl>
   <dt><%= data_product[i].productName %> | <%= data_product[i].category1 %> > <%= data_product[i].category2 %></dt>
