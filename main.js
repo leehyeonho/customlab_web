@@ -243,9 +243,9 @@ app.get('/500_error', function(request, response){
   fs.createReadStream("./html/500_error.html").pipe(response);
 });
 
-app.use((req, res, next) => { // 404 처리 부분
-  res.status(404).redirect('/404_error');
-});
+// app.use((req, res, next) => { // 404 처리 부분
+//   res.status(404).redirect('/404_error');
+// });
 
 app.use((err, req, res, next) => {
   res.status(500).redirect('/500_error');
