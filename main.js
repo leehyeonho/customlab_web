@@ -142,7 +142,7 @@ app.get(
 
 app.get('/oauth', function(request, response) {
   console.log("여기로");
-  response.redirect('http://customlab.site/sub.ejs?tbl=org');
+  response.redirect('/sub.ejs?tbl=org');
 });
 
 //sub
