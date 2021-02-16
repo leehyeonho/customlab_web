@@ -254,8 +254,8 @@ app.get('/500_error', function(request, response){
 //   res.status(404).redirect('/404_error');
 // });
 
-app.use((err, req, res, next) => {
-  res.status(500).redirect('/500_error');
-});
+// app.use((err, req, res, next) => {
+//   res.status(500).redirect('/500_error');
+// });
 
 app.listen(port, () => console.log(`CUSTOM LAB WEB listening on port ${port}!`))
