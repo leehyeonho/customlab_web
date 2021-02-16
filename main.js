@@ -27,28 +27,6 @@ passport.use('kakao', new KakaoStrategy({
       console.error(error);
       done(error);
     }
-    // var headers = {
-    //   'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-    //   'Authorization': 'Bearer ' + accessToken
-    // }
-    //
-    // var options = {
-    //   url: "https://kapi.kakao.com/v2/user/me",
-    //   method: 'GET',
-    //   headers: headers
-    // }
-    // request(options, function(error, response, body){
-    //   if(error) {
-    //     console.log("error 발생 : " + error);
-    //   } else {
-    //     var jsonObj = JSON.parse(body);
-    //     console.log(jsonObj);
-    //     // request.session.user_id = result[0].user_id;
-    //  		// request.session.user_name = result[0].user_name;
-    //  		// request.session.user_tell = result[0].user_tell;
-    //  		// request.session.isLogined = true;
-    //   }
-    // });
 }))
 
 // const favicon = require('serve-favicon');
@@ -153,6 +131,11 @@ app.get(
  		req.session.user_name = req.user.username;
  		req.session.isLogined = true;
     req.session.iskakao = true;
+    if (request.isAuthenticated()) {
+      console.log("로그인 상태");
+    } else {
+      console.log("로그아웃 상태");
+    }
     res.redirect('/');
   });
 
