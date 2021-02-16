@@ -29,7 +29,8 @@ passport.use('kakao', new KakaoStrategy({
     }
 }))
 
-// const favicon = require('serve-favicon');
+var favicon = require('serve-favicon');
+app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
@@ -101,7 +102,7 @@ app.use(passport.session());
 // ejs
 // const ejs = require('ejs');
 
-// app.use(favicon('./public/images/favicon.ico'));
+
 const fs = require('fs');
 const ejs = require('ejs');
 var board = require('./public/js/board.js');
@@ -213,10 +214,6 @@ app.get('/years', function(request, response) {
 app.get('/complete', function(request, response){
   response.writeHead(200,{'Content-Type':'text/html;charset=UTF-8'});
   fs.createReadStream("./html/complete.html").pipe(response);
-});
-
-app.get('/favicon.ico', function(request, response){
-  response.writeHead(200,{'Content-Type':'text/html;charset=UTF-8'});
 });
 
 app.get('/signup', function(request, response){
