@@ -3,8 +3,6 @@
   <%- include ("head.ejs") %>
 </head>
 <script type="text/javascript">
-console.log(<%= type %>);
-console.log(<%= spl %>);
 switch (<%= type %>) {
   case "total":
   document.getElementById("titlehighliter").contains("<%= spl %>").css({background-color:yellow});
