@@ -31,7 +31,7 @@ passport.use('kakao', new KakaoStrategy({
         console.log(error);
       } else {
         var jsonObj = JSON.parse(body);
-        consoleLog(jsonObj.kaccount_email);
+        console.log(jsonObj.kaccount_email);
       }
     });
 }))
