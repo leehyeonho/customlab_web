@@ -5,20 +5,20 @@
 .bx-wrapper .bx-pager {position:absolute; top:485px; z-index:100;left:47.5%; display:none; }
 .bx-wrapper .bx-pager .bx-pager-item,
 .bx-wrapper .bx-controls-auto .bx-controls-auto-item {display: inline-block;*zoom: 1;*display: inline;}
-.bx-wrapper .bx-pager.bx-default-pager a {text-indent: -9999px;display: block;margin: 0 4px;background:url(/asin/images/main/off.png) no-repeat; width:16px; height:16px; }
+.bx-wrapper .bx-pager.bx-default-pager a {text-indent: -9999px;display: block;margin: 0 4px;}
 /* .bx-wrapper .bx-pager.bx-default-pager a:hover, */
 .bx-wrapper .bx-pager.bx-default-pager a.active {background:url(/asin/images/main/on.png) no-repeat; width:16px; height:16px; }
 
 
-.bx-wrapper .bx-controls-auto .bx-start {display: block;	 text-indent: -9999px; width: 10px; height: 16px; outline: 0; background: url(/asin/images/main/play.png) 0 0 no-repeat; margin: 0 3px;
+.bx-wrapper .bx-controls-auto .bx-start {display: block;	 text-indent: -9999px; width: 10px; height: 16px; outline: 0; margin: 0 3px;
 }
 
 /* .bx-wrapper .bx-controls-auto .bx-start:hover,
 .bx-wrapper .bx-controls-auto .bx-start.active {background-position: -86px 0;} */
-.bx-wrapper .bx-controls-auto .bx-stop {display: block; text-indent: -9999px; width: 16px; height: 16px; outline: 0; 	background: url(/asin/images/main/stop.png) 0px 0px no-repeat;
+.bx-wrapper .bx-controls-auto .bx-stop {display: block; text-indent: -9999px; width: 16px; height: 16px; outline: 0;
  margin: 0 3px;}
-.bx-wrapper .bx-prev {left:50%;  margin-left:-615px;background:url(/images/main/btn_prev.png) 0 0 no-repeat; z-index:1000; }
-.bx-wrapper .bx-next {right:50%; margin-right:-615px;background: url(/images/main/btn_next.png)  0 0 no-repeat; z-index:1000;}
+.bx-wrapper .bx-prev {left:50%;  margin-left:-615px;z-index:1000; }
+.bx-wrapper .bx-next {right:50%; margin-right:-615px;z-index:1000;}
 .bx-wrapper .bx-prev:hover {background-position: 0 0;}
 .bx-wrapper .bx-next:hover {background-position:}
 .bx-wrapper .bx-controls-direction a {position: absolute;top: 225px;outline: 0;width: 55px;height: 105px;text-indent: -9999px;z-index: 9999;}

@@ -177,12 +177,12 @@ label.invisible{*position:Absolute;}
 -o-box-shadow: inset 0 0 5px 2px rgba(255,255,255,.5);
 box-shadow: 0 0 5px 2px rgba(255,255,255,.5);
 }
-.member_info .member_1{width:375px; background:#222e4c url(/images/main/icon_cap1.png) 222px center no-repeat; }
-.member_info .member_1:hover{background:#222e4c url(/images/main/icon_cap1_over.png) 222px center no-repeat;}
-.member_info .member_2{width:375px; background:#0c5ca1 url(/images/main/icon_cap2.png) 222px center no-repeat; }
-.member_info .member_2:hover{background:#0c5ca1 url(/images/main/icon_cap2_over.png) 222px center no-repeat;}
-.member_info .member_3{width:370px; background:#33302e url(/images/main/icon_cap3.png) 217px center no-repeat; }
-.member_info .member_3:hover{background:#33302e url(/images/main/icon_cap3_over.png) 217px center no-repeat;}
+.member_info .member_1{width:375px; background:#222e4c }
+.member_info .member_1:hover{background:#222e4c }
+.member_info .member_2{width:375px; background:#0c5ca1 }
+.member_info .member_2:hover{background:#0c5ca1 }
+.member_info .member_3{width:370px; background:#33302e }
+.member_info .member_3:hover{background:#33302e }
 .main_container{width:1120px; margin:22px auto 25px; }
 .left_contents{width:768px; float:left; }
 /* NOTICE */
