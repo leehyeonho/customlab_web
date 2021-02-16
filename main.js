@@ -130,12 +130,14 @@ app.get('/', function(request, response) {
   index.index(request, response);
 });
 
-app.get('/oauth', function(request, response) {
-  console.log("여기로");
-  response.redirect('/sub.ejs?tbl=org');
+// //kakao
+app.get('/oauth', function(request, response){
+  passport.authenticate("kakao", {
+    successRedirect: "http://customlab.site/sub.ejs?tbl=history",
+    failureRedirect: "http://customlab.site/sub.ejs?tbl=info"
+  })
 });
 
-// //kakao
 app.get("/oauth", passport.authenticate("kakao"));
 app.get(
   "/oauth",
