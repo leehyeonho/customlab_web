@@ -22,17 +22,19 @@ passport.use('kakao', new KakaoStrategy({
     }
 
     var options = {
-      url: "https://kapi.kakao.com/v2/user/me",
+      url: "https://kapi.kakao.com/v1/user/logout",
       method: 'GET',
       header: headers
     }
+    console.log("로그아웃 가자");
     request(options, function(error, response, body){
-    if (!error && response.statusCode == 200) {
-    var jsonObj = JSON.parse(body);
-    consoleLog(jsonObj.kaccount_email);
-    } else if(error) {
-    consoleLog("[error] : " + error);
-    }
+    // if (!error && response.statusCode == 200) {
+    // var jsonObj = JSON.parse(body);
+    // consoleLog(jsonObj.kaccount_email);
+    // } else if(error) {
+    // consoleLog("[error] : " + error);
+    // }
+    console.log("로그아웃됐어??");
     });
 }))
 
