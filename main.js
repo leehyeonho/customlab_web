@@ -131,7 +131,7 @@ app.get(
  		req.session.user_name = req.user.username;
  		req.session.isLogined = true;
     req.session.iskakao = true;
-    if (request.isAuthenticated()) {
+    if (req.isAuthenticated()) {
       console.log("로그인 상태");
     } else {
       console.log("로그아웃 상태");
