@@ -132,6 +132,10 @@ app.get('/', function(request, response) {
 
 app.get("/oauth", passport.authenticate("kakao"));
 
+app.get('/oauth/callback', function(request, response) {
+  console.log("콜백");
+});
+
 app.get(
   "/oauth/callback",
   passport.authenticate("kakao", {
