@@ -18,7 +18,7 @@ passport.use('kakao', new KakaoStrategy({
 
     var headers = {
       'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-      'Authorization': 'Bearer ' + access_token
+      'Authorization': 'Bearer ' + accessToken
     }
 
     var options = {
