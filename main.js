@@ -129,13 +129,16 @@ const port = 80
 app.get('/', function(request, response) {
   index.index(request, response);
 });
+
+app.get("/oauth", passport.authenticate("kakao"));
+
 app.get('/oauth', function(request, response) {
   passport.authenticate("kakao");
   console.log(request.accessToken);
   response.redirect('/sub.ejs?tbl=org');
 });
 // //kakao
-app.get("/oauth", passport.authenticate("kakao"));
+
 app.get(
   "/oauth",
   passport.authenticate("kakao", {
