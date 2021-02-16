@@ -135,7 +135,7 @@ app.get('/oauth', function(request, response){
   passport.authenticate("kakao", {
     successRedirect: "http://customlab.site/sub.ejs?tbl=history",
     failureRedirect: "http://customlab.site/sub.ejs?tbl=info"
-  })
+  });
 });
 
 app.get("/oauth", passport.authenticate("kakao"));
