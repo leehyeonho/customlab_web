@@ -134,8 +134,9 @@ app.get(
   passport.authenticate("kakao", {
     successRedirect: "/sub.ejs?tbl=history",
     failureRedirect: "/sub.ejs?tbl=info"
-  })
-);
+  }), (req, res) => {
+    res.redirect('/');
+  });
 
 
 
