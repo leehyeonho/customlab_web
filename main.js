@@ -151,6 +151,7 @@ app.get(
     req.session.user_id = req.user.username;
  		req.session.user_name = req.user.username;
  		req.session.isLogined = true;
+    req.session.iskakao = true;
     res.redirect('/');
   });
 
