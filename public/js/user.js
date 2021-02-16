@@ -122,7 +122,7 @@ exports.signup = function ( request, response ){
 exports.logout = function ( request, response ){
   if(request.session.iskakao) {
     request.session.iskakao = false;
-    req.logOut();
+    request.logOut();
     // var headers = {
     //   'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
     //
@@ -151,7 +151,7 @@ exports.logout = function ( request, response ){
   } else {
     console.log("로그인 안되있음");
   }
-  
+
   request.session.destroy(function(){
     request.session;
   });
