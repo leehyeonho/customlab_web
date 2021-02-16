@@ -9,7 +9,7 @@ const KakaoStrategy = require('passport-kakao').Strategy;
 
 passport.use('kakao', new KakaoStrategy({
     clientID: '4aaf1a669526ce81793050bf7267a81c',
-    callbackURL: '/oauth',     // 위에서 설정한 Redirect URI
+    callbackURL: 'http://customlab.site/oauth',     // 위에서 설정한 Redirect URI
   }, async (accessToken, refreshToken, profile, done) => {
     //console.log(profile);
     console.log("성공");
@@ -36,7 +36,6 @@ passport.use('kakao', new KakaoStrategy({
      		// request.session.user_name = result[0].user_name;
      		// request.session.user_tell = result[0].user_tell;
      		// request.session.isLogined = true;
-        response.redirect('/');
       }
     });
 }))
@@ -136,13 +135,14 @@ app.get("/oauth", passport.authenticate("kakao"));
 app.get(
   "/oauth",
   passport.authenticate("kakao", {
-    successRedirect: "/sub.ejs?tbl=history",
-    failureRedirect: "/sub.ejs?tbl=info"
+    successRedirect: "http://customlab.site/sub.ejs?tbl=history",
+    failureRedirect: "http://customlab.site/sub.ejs?tbl=info"
   })
 );
 
 app.get('/oauth', function(request, response) {
   console.log("여기로");
+  response.redirect('http://customlab.site/sub.ejs?tbl=org');
 });
 
 //sub
