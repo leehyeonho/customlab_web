@@ -34,7 +34,7 @@ passport.use('kakao', new KakaoStrategy({
     // } else if(error) {
     // consoleLog("[error] : " + error);
     // }
-    console.log("로그아웃됐어??");
+    console.log(accessToken);
     });
 }))
 
