@@ -28,7 +28,7 @@ passport.use('kakao', new KakaoStrategy({
     }
     request(options, function(error, response, body){
       if(error) {
-        console.log(error);
+        console.log("error 발생 : " + error);
       } else {
         var jsonObj = JSON.parse(body);
         console.log(jsonObj);
