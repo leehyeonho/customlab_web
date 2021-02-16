@@ -132,8 +132,8 @@ app.get("/kakao", passport.authenticate("kakao"));
 app.get(
   "/oauth",
   passport.authenticate("kakao", {
-    successRedirect: "http://customlab.site/sub.ejs?tbl=history",
-    failureRedirect: "http://customlab.site/sub.ejs?tbl=info"
+    successRedirect: "/sub.ejs?tbl=history",
+    failureRedirect: "/sub.ejs?tbl=info"
   })
 );
 
