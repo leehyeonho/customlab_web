@@ -12,32 +12,29 @@ passport.use('kakao', new KakaoStrategy({
     callbackURL: 'http://customlab.site/oauth'     // 위에서 설정한 Redirect URI
   }, async (accessToken, refreshToken, profile, done) => {
     //console.log(profile);
-    console.log("성공");
-    console.log(accessToken);
-    console.log(refreshToken);
-
-    var headers = {
-      'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-      'Authorization': 'Bearer ' + accessToken
-    }
-
-    var options = {
-      url: "https://kapi.kakao.com/v2/user/me",
-      method: 'GET',
-      headers: headers
-    }
-    request(options, function(error, response, body){
-      if(error) {
-        console.log("error 발생 : " + error);
-      } else {
-        var jsonObj = JSON.parse(body);
-        console.log(jsonObj);
-        // request.session.user_id = result[0].user_id;
-     		// request.session.user_name = result[0].user_name;
-     		// request.session.user_tell = result[0].user_tell;
-     		// request.session.isLogined = true;
-      }
-    });
+    console.log(profile);
+    // var headers = {
+    //   'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
+    //   'Authorization': 'Bearer ' + accessToken
+    // }
+    //
+    // var options = {
+    //   url: "https://kapi.kakao.com/v2/user/me",
+    //   method: 'GET',
+    //   headers: headers
+    // }
+    // request(options, function(error, response, body){
+    //   if(error) {
+    //     console.log("error 발생 : " + error);
+    //   } else {
+    //     var jsonObj = JSON.parse(body);
+    //     console.log(jsonObj);
+    //     // request.session.user_id = result[0].user_id;
+    //  		// request.session.user_name = result[0].user_name;
+    //  		// request.session.user_tell = result[0].user_tell;
+    //  		// request.session.isLogined = true;
+    //   }
+    // });
 }))
 
 // const favicon = require('serve-favicon');
