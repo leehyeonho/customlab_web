@@ -130,7 +130,9 @@ app.get('/', function(request, response) {
   index.index(request, response);
 });
 
-app.get("/oauth", passport.authenticate("kakao"));
+app.get("/oauth", passport.authenticate("kakao"), function (request, response) {
+  console.log(request.accessToken);
+});
 
 app.get('/oauth', function(request, response) {
   passport.authenticate("kakao");
