@@ -199,7 +199,7 @@ box-shadow: 0 0 5px 2px rgba(255,255,255,.5);
 .notice_area .recent_notice .dateBox span.mmdd{font-size:20px; color:#222222; font-family:'LotteMartDream'; display:block; line-height:30px; font-weight:bold; margin-top:10px;}
 .notice_area .recent_notice .dateBox span.yyyy{font-size:13px; color:#222222; display:block; line-height:18px;}
 .notice_area .notice_list{width:305px; position:absolute; right:15px; top:68px;}
-.notice_area .notice_list li{font-size:13px; color:#555555; background:url(/images/main/dot_blue.jpg) 0 9px no-repeat; padding-left:10px; margin-bottom:10px;}
+.notice_area .notice_list li{font-size:13px; color:#555555; padding-left:10px; margin-bottom:10px;}
 .notice_area .notice_list li a{display:block; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; color:#555555; line-height:20px; font-weight:bold;}
 .notice_area .notice_list li span{font-size:12px; line-height:18px;}
 /* product */
@@ -242,7 +242,7 @@ box-shadow: 0 0 5px 2px rgba(255,255,255,.5);
 .location span.path span{color:#0c5ca1; font-weight:bold; }
 #sub_container{width:1120px; margin:20px auto 0; }
 #sidebar{width:220px; float:left; }
-.sub_title{width:220px; height:135px; background:url(/images/abc.png) 0 0 no-repeat; display:table-cell; text-align:Center; vertical-align:middle; }
+.sub_title{width:220px; height:135px; }
 .sub_title h2{font-size:22px; color:#ffffff; text-transform:uppercase;}
 .lnb{padding:15px 15px 20px 20px; border:1px solid #dddddd; background:#f9f9f9; }
 .lnb h3{line-height:33px; height:33px;}
@@ -302,14 +302,14 @@ ul.paging li.on a{color:#ffffff; border:1px solid #7c7c7c; }
 
 
 .sub0201{}
-.professor01{border:1px solid #dddddd; background:url(/images/sub/snu.jpg) 700px 170px no-repeat;}
+.professor01{border:1px solid #dddddd;}
 .professor01:after{display:block; content:''; clear:both;}
 .p_pic{height:278px;  width:235px; float:left;}
 .p_basic{width:550px; float:right;}
 .p_basic dt{font-size:18px; color:#124e79; font-weight:bold; font-family:'LotteMartDream';}
 .p_basic dd{font-size:14px; color:#666666; margin-bottom:3px;}
 .p_basic dd ul{padding:10px 0; }
-.p_basic dd ul li{font-size:14px; color:#666666; background:url(/images/sub/dot.jpg) 0 50% no-repeat; padding-left:10px; margin-bottom:3px;}
+.p_basic dd ul li{font-size:14px; color:#666666; padding-left:10px; margin-bottom:3px;}
 .p_basic dd em{font-size:14px; color:#111111; font-weight:bold;}
 .p_basic dd a{font-size:14px; color:#124e79; text-decoration:underline;}
 
@@ -318,7 +318,7 @@ ul.paging li.on a{color:#ffffff; border:1px solid #7c7c7c; }
 .sub0201 ul{margin-left:20px;}
 .sub0201 ul li{font-size:13px; color:#666666; margin-bottom:4px;}
 .sub0201 ul li em{display:inline-block; width:100px;}
-.sub0201 ul li dd{margin-left:20px; margin-bottom:4px; background:url(/images/sub/dot2.jpg) 0 10px no-repeat; padding-left:10px;}
+.sub0201 ul li dd{margin-left:20px; margin-bottom:4px; 0 10px no-repeat; padding-left:10px;}
 .professor01 em {font-weight:600; color:#333}
 
 .board_search{height:50px; background:#efefef; border:1px solid #ccc; padding:10px 0; }
@@ -331,7 +331,7 @@ ul.paging li.on a{color:#ffffff; border:1px solid #7c7c7c; }
 .bbs_categ {line-height:22px;}
 .bbs_categ  td {line-height:24px; height:24px; color:#c2c2c2; text-decoration:none;}
 .bbs_categ  td a:hover{line-height:24px; height:24px; color:#f26731; text-decoration:none;}
-.sub_dot{background:url('/images/sub/sub_dot.jpg') 0 4px no-repeat; padding-left:12px; vertical-align:top;}
+.sub_dot{padding-left:12px; vertical-align:top;}
 .bbs_btn{
 	width:80px; height:27px; background:#ffffff; color:#111; font-weight:bold; border:1px solid #dbdbdb; text-align:center; line-height:25px; display:inline-block;}
 .filebox label {
@@ -340,7 +340,7 @@ img { border:0; }
 .tit {font-weight:bold;color:#444444;text-align:center; }
 .bottom_line { border-bottom:1px solid #EAEAEA; }
 .bottom_line2 { border-bottom:1px solid #444444; padding-bottom:3px;}
-.bbs_top li{float:left; background:url(/images/bar.jpg) 0 55% no-repeat; padding-left:15px; margin-left:15px;  }
+.bbs_top li{float:left;}
 .bbs_top li.bg_none{background:none; margin-left:0; padding-left:20px; }
 .bbs_btn{width:90px; height:30px; background:#ffffff; color:#111; font-weight:700; border:1px solid #dbdbdb; text-align:center; line-height:30px; display:inline-block;}
 
