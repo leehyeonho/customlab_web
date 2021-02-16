@@ -4,6 +4,14 @@ const bodyParser = require("body-parser");
 const passport = require('passport');
 const request = require('request');
 
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
+
 // kakao
 const KakaoStrategy = require('passport-kakao').Strategy;
 
