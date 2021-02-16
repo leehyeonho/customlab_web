@@ -153,6 +153,9 @@ exports.signup = function ( request, response ){
 }
 
 exports.logout = function ( request, response ){
+  if(request.session.iskakao) {
+    request.session.iskakao = false;
+  }
   request.session.destroy(function(){
     request.session;
   });
