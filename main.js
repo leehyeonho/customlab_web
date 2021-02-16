@@ -135,6 +135,7 @@ app.get(
     successRedirect: "/sub.ejs?tbl=history",
     failureRedirect: "/sub.ejs?tbl=info"
   }), (req, res) => {
+    console.log("살려줘");
     res.redirect('/');
   });
 
