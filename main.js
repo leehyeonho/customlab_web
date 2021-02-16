@@ -131,7 +131,7 @@ app.get('/', function(request, response) {
 });
 
 app.get("/oauth", passport.authenticate("kakao"), function (request, response) {
-  console.log(request.accessToken);
+  console.log("여기가 맞아?");
 });
 
 app.get('/oauth', function(request, response) {
