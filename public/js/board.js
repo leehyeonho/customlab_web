@@ -181,10 +181,10 @@ exports.edit = function(request, response) {
 exports.view = function(request, response) {
   var tbl = request.query.tbl;
   if (tbl == "1") {
-      sql = 'SELECT id, author, title, content, hit, session_id, date_format(date,"%Y-%m-%d") as date FROM bbs_notice where id = ?';
+      sql = 'SELECT id, author, title, content, hit, date_format(date,"%Y-%m-%d") as date FROM bbs_notice where id = ?';
 
     } else if (tbl == "2") {
-      sql = 'SELECT id, author, title, content, img, hit, session_id, date_format(date,"%Y-%m-%d") as date FROM bbs_gallery where id = ?';
+      sql = 'SELECT id, author, title, content, img, hit, date_format(date,"%Y-%m-%d") as date FROM bbs_gallery where id = ?';
 
     } else if (tbl == "3") {
       sql = 'SELECT id, author, title, content, hit, session_id, date_format(date,"%Y-%m-%d") as date FROM bbs_free where id = ?';
