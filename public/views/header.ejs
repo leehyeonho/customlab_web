@@ -3,12 +3,9 @@
 			<div class="top_menu clfix">
 				<form action="/login" method="post" name="frm_login" id="frm_login">
 				<% if ( session.isLogined == true ) { %>
-                                  <span class="tm1">
-				    <strong><%= session.user_name %></strong>님
-				  </span>
+				    <strong><%= session.user_name %></strong>님<br>Login with Kakao
 				  <span class="tm3">
 				    <a href="/logout">
-							Login with Kakao<br>
 							로그아웃
 						</a>
 				  </span>
