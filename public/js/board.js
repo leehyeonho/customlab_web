@@ -44,14 +44,15 @@ exports.write = function(request, response) {
   var author = request.body.author;
   var title = request.body.title;
   var content = request.body.content;
+  var session_id = request.body.session_id;
   if (request.body.tbl == "1") {
     sql = 'INSERT INTO bbs_notice(author, title, content) values (?, ?, ?)';
     } else if (request.body.tbl == "2") {
       sql = 'INSERT INTO bbs_gallery(author, title, content) values (?, ?, ?)';
     } else if (request.body.tbl == "3") {
-      sql = 'INSERT INTO bbs_free(author, title, content) values (?, ?, ?)';
+      sql = 'INSERT INTO bbs_free(author, title, content, session_id) values (?, ?, ?, ?)';
     }
-  db.query(sql, [author, title, content], function(error, result) {
+  db.query(sql, [author, title, content, session_id], function(error, result) {
     if(error) {
       console.log(error);
     }
