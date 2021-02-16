@@ -12,7 +12,6 @@ passport.use('kakao', new KakaoStrategy({
     callbackURL: 'http://customlab.site/oauth'     // 위에서 설정한 Redirect URI
   }, async (accessToken, refreshToken, profile, done) => {
     console.log(profile);
-    return done(null, profile);
     // var headers = {
     //   'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
     //   'Authorization': 'Bearer ' + accessToken
