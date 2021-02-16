@@ -149,7 +149,7 @@ app.get(
   passport.authenticate('kakao', {
     failureRedirect: "/sub.ejs?tbl=info"
   }), (req, res) => {
-    req.session.user_id = req.user.username;
+    req.session.user_id = req.user.id;
  		req.session.user_name = req.user.username;
  		req.session.isLogined = true;
     req.session.iskakao = true;
