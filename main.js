@@ -21,6 +21,7 @@ passport.use('kakao', new KakaoStrategy({
   }, async (accessToken, refreshToken, profile, done) => {
     try {
       console.log(profile);
+      console.log(profile.id);
       done(null, profile);
     } catch (error) {
       console.error(error);
