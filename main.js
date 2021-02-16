@@ -24,7 +24,7 @@ passport.use('kakao', new KakaoStrategy({
     var options = {
       url: "https://kapi.kakao.com/v2/user/me",
       method: 'GET',
-      header: headers
+      headers: headers
     }
     request(options, function(error, response, body){
       if(error) {
