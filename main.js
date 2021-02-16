@@ -20,8 +20,8 @@ passport.use('kakao', new KakaoStrategy({
     callbackURL: '/oauth',     // 위에서 설정한 Redirect URI
   }, async (accessToken, refreshToken, profile, done) => {
     try {
-      console.log(profile);
-      console.log(profile.id);
+      // console.log(profile);
+      // console.log(profile.id);
       done(null, profile);
     } catch (error) {
       console.error(error);
@@ -131,11 +131,11 @@ app.get(
  		req.session.user_name = req.user.username;
  		req.session.isLogined = true;
     req.session.iskakao = true;
-    if (req.isAuthenticated()) {
-      console.log("로그인 상태");
-    } else {
-      console.log("로그아웃 상태");
-    }
+    // if (req.isAuthenticated()) {
+    //   console.log("로그인 상태");
+    // } else {
+    //   console.log("로그아웃 상태");
+    // }
     res.redirect('/');
   });
 

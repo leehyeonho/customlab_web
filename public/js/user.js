@@ -146,11 +146,11 @@ exports.logout = function ( request, response ){
     //   }
     // });
   }
-  if (request.isAuthenticated()) {
-    console.log("로그인 상태");
-  } else {
-    console.log("로그아웃 상태");
-  }
+  // if (request.isAuthenticated()) {
+  //   console.log("로그인 상태");
+  // } else {
+  //   console.log("로그아웃 상태");
+  // }
 
   request.session.destroy(function(){
     request.session;
