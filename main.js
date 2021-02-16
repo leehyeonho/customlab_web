@@ -22,19 +22,17 @@ passport.use('kakao', new KakaoStrategy({
     }
 
     var options = {
-      url: "/oauth/logout?client_id=4aaf1a669526ce81793050bf7267a81c&logout_redirect_uri=http://customlab.site/sub.ejs?tbl=info",
+      url: "https://kapi.kakao.com/v2/user/me",
       method: 'GET',
       header: headers
     }
-    console.log("로그아웃 가자");
     request(options, function(error, response, body){
-    // if (!error && response.statusCode == 200) {
-    // var jsonObj = JSON.parse(body);
-    // consoleLog(jsonObj.kaccount_email);
-    // } else if(error) {
-    // consoleLog("[error] : " + error);
-    // }
-    console.log(accessToken);
+      if(error) {
+        console.log(error);
+      } else {
+        var jsonObj = JSON.parse(body);
+        consoleLog(jsonObj.kaccount_email);
+      }
     });
 }))
 
