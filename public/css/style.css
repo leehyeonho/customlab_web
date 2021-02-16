@@ -203,7 +203,7 @@ box-shadow: 0 0 5px 2px rgba(255,255,255,.5);
 .notice_area .notice_list li a{display:block; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; color:#555555; line-height:20px; font-weight:bold;}
 .notice_area .notice_list li span{font-size:12px; line-height:18px;}
 /* product */
-.product_area{height:210px; position:relative; }
+.product_area{height:330px; position:relative; }
 .product_area h2{height:51px; line-height:55px; border-bottom:1px solid #6baddf; font-size:20px; color:#222222; }
 .product_area a.btn_more{position:absolute; right:0; top:20px;}
 .product_area .product_list{margin-top:9px;}
