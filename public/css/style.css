@@ -147,7 +147,7 @@ label.invisible{*position:Absolute;}
 #header .top_menu span.tm1 a{background:#6baddf; color:#ffffff; }
 #header .top_menu span.tm2 a{background:#005dab; color:#ffffff; }
 #header .top_menu span.tm3 a{background:#ececec; color:#555555; }
-#gnb{float:right; margin-top:40px;}
+#gnb{float:right; margin-top:40px; background:#555555;}
 #gnb > li{float:left; height:100px; line-height:102px; margin-left:90px; position:relative; }
 #gnb > li > a{font-size:16px; color:#555555; font-weight:bold;}
 #gnb > li > a:hover{color:#0c5ca1; }
