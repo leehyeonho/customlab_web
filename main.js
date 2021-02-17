@@ -144,20 +144,19 @@ function kakaoPay() {
   var headers = {
     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
     'Authorization': 'KakaoAK b980142b0d3b61c70c01646deb852459'
-
   }
 
   var form = {
-    cid : 'TC0ONETIME',
-    partner_order_id : 'partner_order_id',
-    partner_user_id : 'partner_user_id',
-    item_name : encodeURI('초코파이'),
-    quantity : 1,
-    total_amount : 2200,
-    tax_free_amount : 200,
-    approval_url : '/sub.ejs?tbl=info',
-    cancel_url : '/sub.ejs?tbl=service',
-    fail_url : '/sub.ejs?tbl=reference'
+    'cid' : 'TC0ONETIME',
+    'partner_order_id' : 'partner_order_id',
+    'partner_user_id' : 'partner_user_id',
+    'item_name' : encodeURI('초코파이'),
+    'quantity' : 1,
+    'total_amount' : 2200,
+    'tax_free_amount' : 200,
+    'approval_url' : '/sub.ejs?tbl=info',
+    'cancel_url' : '/sub.ejs?tbl=service',
+    'fail_url' : '/sub.ejs?tbl=reference'
   }
 
   var options = {
