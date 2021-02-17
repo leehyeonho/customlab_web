@@ -107,7 +107,13 @@ exports.signup = function ( request, response ){
             if(err) {
               logger.error("회원가입 에러(DB 삽입 오류)");
             } else {
+              request.session.user_id = user.user_id;
+           		request.session.user_name = user.user_name;
+           		request.session.isLogined = true;
               logger.info("회원가입 // user_id: " + user.user_id);
+              request.session.save(function(){
+                logger.info("로그인 성공 // user_id: " + request.session.user_id);
+         		 });
               response.redirect('/complete');
             }
             });
