@@ -144,13 +144,6 @@ function kakaoPay() {
   var headers = {
     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
     'Authorization': 'KakaoAK b980142b0d3b61c70c01646deb852459',
-
-  }
-
-  var options = {
-    url: "https://kapi.kakao.com/v1/payment/ready",
-    method: 'POST',
-    headers: headers,
     cid : "TC0ONETIME",
     partner_order_id : 'partner_order_id',
     partner_user_id : 'partner_user_id',
@@ -161,6 +154,13 @@ function kakaoPay() {
     approval_url : '/sub.ejs?tbl=info',
     cancel_url : '/sub.ejs?tbl=service',
     fail_url : '/sub.ejs?tbl=reference'
+  }
+
+  var options = {
+    url: "https://kapi.kakao.com/v1/payment/ready",
+    method: 'POST',
+    headers: headers,
+
   }
 
   request(options, function(error, response, body){
