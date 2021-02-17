@@ -140,7 +140,7 @@ app.get(
     res.redirect('/');
   });
 
-app.get('/kakaoPay', function(request, response) {
+function kakaoPay() {
   var headers = {
     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
   }
@@ -168,6 +168,10 @@ app.get('/kakaoPay', function(request, response) {
       console.log(jsonObj);
     }
   });
+}
+
+app.get('/kakaoPay', function(request, response) {
+  kakaoPay();
 });
 
 //sub
