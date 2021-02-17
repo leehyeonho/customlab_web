@@ -85,7 +85,7 @@ function login_check() {
         </tbody></table>
         </td>
         </tr>
-        <tr><td height="25"><div align="left" style="padding-left:5px;"><a href="/bbs/board.php?tbl=gallery&amp;mode=VIEW&amp;num=36&amp;category=&amp;findType=&amp;findWord=&amp;sort1=&amp;sort2=&amp;it_id=&amp;shop_flag=&amp;board_sub=&amp;mobile_flag=&amp;page=1"><font color="767676"><%= data[i].title %></font></a> <!----></div></td></tr>
+        <tr><td height="25"><div align="left" style="padding-left:5px;"><a href="board_view.ejs?tbl=<%= tbl %>&id=<%= data[i].id %>"><font color="767676"><%= data[i].title %></font></a> <!----></div></td></tr>
         <tr>
           <td height="25"></td>
         </tr>
