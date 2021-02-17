@@ -78,7 +78,7 @@ exports.login = function (request, response) {
 		 request.session.isLogined = true;
      request.session.save(function(){
        logger.info("로그인 성공 // user_id: " + request.session.user_id);
-		   response.redirect('/');
+		   response.redirect('/complete');
 		 });
 		 //response.render('index', {session : request.session});
                 } else { // 비교 실패
