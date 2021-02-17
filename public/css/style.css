@@ -157,7 +157,7 @@ label.invisible{*position:Absolute;}
 .gnb_2depth3{position:absolute; left:-50px; top:100px; }
 .gnb_2depth4{position:absolute; left:-40px; top:100px; }
 .gnb_2depth5{position:absolute; left:-55px; top:100px; }
-.gnb_2depth li{height:40px; line-height:40px; }
+.gnb_2depth li{height:40px; line-height:40px; margin-right: 5px;}
 .gnb_2depth li a{display:block; width:100%; height:100%; font-size:13px; color:#555555; padding:0 15px;}
 .gnb_2depth li a:hover{background:#0c5ca1; color:#ffffff; }
 #visual_wrap{width:100%; height:610px; position:relative; overflow:hidden; }
