@@ -137,8 +137,7 @@ app.get(
     // } else {
     //   console.log("로그아웃 상태");
     // }
-    window.opener.location.reload();
-    window.close();
+    res.redirect('/complete');
   });
 
 app.get('/kakaoPay', function(req, res) {
