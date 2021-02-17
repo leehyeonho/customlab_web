@@ -147,7 +147,7 @@ function kakaoPay() {
     cid : 'TC0ONETIME',
     partner_order_id : 'partner_order_id',
     partner_user_id : 'partner_user_id',
-    item_name : '초코파이',
+    item_name : encodeURI('초코파이'),
     quantity : 1,
     total_amount : 2200,
     tax_free_amount : 200,
