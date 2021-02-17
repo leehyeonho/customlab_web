@@ -151,7 +151,7 @@ function kakaoPay() {
     url: "https://kapi.kakao.com/v1/payment/ready",
     method: 'POST',
     headers: headers,
-    cid : encodeURI('TC0ONETIME'),
+    'cid' : 'TC0ONETIME',
     partner_order_id : 'partner_order_id',
     partner_user_id : 'partner_user_id',
     item_name : encodeURI('초코파이'),
