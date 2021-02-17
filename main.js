@@ -141,12 +141,16 @@ app.get(
   });
 
 function kakaoPay() {
-  var headers = {
+
+}
+
+app.get('/kakaoPay', function(req, res) {
+  let headers = {
     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
     'Authorization': 'KakaoAK b980142b0d3b61c70c01646deb852459'
-  }
+  };
 
-  var form = {
+  let params = {
     'cid' : 'TC0ONETIME',
     'partner_order_id' : 'partner_order_id',
     'partner_user_id' : 'partner_user_id',
@@ -157,27 +161,23 @@ function kakaoPay() {
     'approval_url' : '/sub.ejs?tbl=info',
     'cancel_url' : '/sub.ejs?tbl=service',
     'fail_url' : '/sub.ejs?tbl=reference'
-  }
+  };
 
-  var options = {
+  let options = {
     url: "https://kapi.kakao.com/v1/payment/ready",
     method: 'POST',
     headers: headers,
-    form: form
-  }
+    form: params
+  };
 
   request(options, function(error, response, body){
-    if(error) {
+    if (!error && response.statusCode === 200) {
+        console.log(JSON.parse(body));
+        return JSON.parse(body);
+    } else if(error) {
       console.log("error 발생 : " + error);
-    } else {
-      var jsonObj = JSON.parse(body);
-      console.log(jsonObj);
     }
   });
-}
-
-app.get('/kakaoPay', function(request, response) {
-  kakaoPay();
 });
 
 //sub
