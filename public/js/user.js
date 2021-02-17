@@ -67,8 +67,8 @@ exports.login = function (request, response) {
         console.log('err :' + err);
       } else {
           if (result.length === 0) {
-	    console.log("id 없음.");
-            response.json({success: false, msg: '존재하지 않습니다.'})
+	           console.log("id 없음.");
+             response.redirect('/alert?key=loginfail');
           } else {
 	      bcrypt.compare(password, result[0].password, function(err, res) {
 		if (res) { // 비교 성공
@@ -83,7 +83,7 @@ exports.login = function (request, response) {
 		 //response.render('index', {session : request.session});
                 } else { // 비교 실패
 		    logger.info("로그인 실패(비밀번호 오류) // user_id: " + request.session.user_id);
-		    response.redirect('/loginfail');
+		    response.redirect('/alert?key=loginfail');
 		  }
 });
           }

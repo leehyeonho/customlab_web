@@ -12,12 +12,6 @@ function dd() {
         alert("로그인에 실패했습니다. 아이디 또는 비밀번호를 확인하세요.");
         location.href = "/admin";
         break;
-      case "admodsuccess":
-        alert("admin 비밀번호 변경 성공.");
-        break;
-      case "admodfail":
-        alert("현재 admin 비밀번호가 다릅니다.");
-        break;
       case "submitsuccess":
         alert("회원가입에 성공했습니다.");
         location.href = "/";
@@ -26,12 +20,10 @@ function dd() {
         alert("잘못된 접근입니다.");
         parent.location.href = "/";
         break;
-      case "maxslide":
-        alert("슬라이드 최대 개수는 5개로 제한됩니다.")
-        break;
       case "nofile":
         alert("파일이 지정되지 않았습니다.");
-        location.href = "./board_write.ejs?tbl=" + params.tbl;
+        // location.href = "./board_write.ejs?tbl=" + params.tbl;
+        window.history.back();
         break;
       default:
     }
