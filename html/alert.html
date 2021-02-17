@@ -10,11 +10,7 @@ function dd() {
     switch (params.key) {
       case "loginfail":
         alert("로그인에 실패했습니다. 아이디 또는 비밀번호를 확인하세요.");
-        location.href = "/admin";
-        break;
-      case "submitsuccess":
-        alert("회원가입에 성공했습니다.");
-        location.href = "/";
+        window.history.back();
         break;
       case "notlogin":
         alert("잘못된 접근입니다.");
