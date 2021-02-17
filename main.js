@@ -143,7 +143,6 @@ app.get(
 app.get('/kakaoPay', function(request, response) {
   var headers = {
     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-
   }
 
   var options = {
@@ -167,10 +166,6 @@ app.get('/kakaoPay', function(request, response) {
     } else {
       var jsonObj = JSON.parse(body);
       console.log(jsonObj);
-      // request.session.user_id = result[0].user_id;
-      // request.session.user_name = result[0].user_name;
-      // request.session.user_tell = result[0].user_tell;
-      // request.session.isLogined = true;
     }
   });
 });
@@ -274,13 +269,13 @@ app.get('/500_error', function(request, response){
   fs.createReadStream("./html/500_error.html").pipe(response);
 });
 
-app.use((req, res, next) => { // 404 처리 부분
-  res.status(404).redirect('/404_error');
-});
+// app.use((req, res, next) => { // 404 처리 부분
+//   res.status(404).redirect('/404_error');
+// });
 
-app.use((err, req, res, next) => {
-  console.log("ERROR : " + err);
-  res.status(500).redirect('/500_error');
-});
+// app.use((err, req, res, next) => {
+//   console.log("ERROR : " + err);
+//   res.status(500).redirect('/500_error');
+// });
 
 app.listen(port, () => console.log(`CUSTOM LAB WEB listening on port ${port}!`))
