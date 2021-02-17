@@ -135,13 +135,13 @@ label.invisible{*position:Absolute;}
 
 
 .center{text-align:center; }
-.inner{width:100%; margin:0 auto; position:Relative; }
+.inner{width:90%; margin:0 auto; position:Relative; }
 
 #wrap{width:100%; min-width:1120px; position:relative; }
 #header{width:100%; height:140px;}
 #header h1{position:absolute; left:0; top:55px; }
 #header .top_menu{position:absolute; right:0; top:0; }
-#header .top_menu span{line-height:40px; display:block; float:left; width:110px; height:40px; text-align:center; }
+#header .top_menu span{line-height:40px; display:block; float:left; width:220px; height:40px; text-align:center; }
 #header .top_menu span a{display:block; width:100%; height:100%; font-size:12px; }
 #header .top_menu span img{vertical-align:-3px; margin-right:5px;}
 #header .top_menu span.tm1 a{background:#6baddf; color:#ffffff; }
