@@ -151,7 +151,7 @@ function kakaoPay() {
     url: "https://kapi.kakao.com/v1/payment/ready",
     method: 'POST',
     headers: headers,
-    cid : 'TC0ONETIME',
+    cid : "TC0ONETIME",
     partner_order_id : 'partner_order_id',
     partner_user_id : 'partner_user_id',
     item_name : encodeURI('초코파이'),
@@ -162,6 +162,7 @@ function kakaoPay() {
     cancel_url : '/sub.ejs?tbl=service',
     fail_url : '/sub.ejs?tbl=reference'
   }
+
   request(options, function(error, response, body){
     if(error) {
       console.log("error 발생 : " + error);
