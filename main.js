@@ -255,6 +255,11 @@ app.get('/signup', function(request, response){
   fs.createReadStream("./html/signup.html").pipe(response);
 });
 
+app.get('/loginForm', function(request, response){
+  response.writeHead(200,{'Content-Type':'text/html;charset=UTF-8'});
+  fs.createReadStream("./html/loginForm.html").pipe(response);
+});
+
 app.get('/loginfail', function(request, response){
   response.writeHead(200,{'Content-Type':'text/html;charset=UTF-8'});
   fs.createReadStream("./html/loginfail.html").pipe(response);
