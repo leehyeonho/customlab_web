@@ -148,7 +148,7 @@ function kakaoPay() {
   var options = {
     url: "https://kapi.kakao.com/v1/payment/ready",
     method: 'POST',
-    'Authorization': 'KakaoAK b980142b0d3b61c70c01646deb852459',
+    Authorization : 'KakaoAK b980142b0d3b61c70c01646deb852459',
     cid : 'TC0ONETIME',
     partner_order_id : 'partner_order_id',
     partner_user_id : 'partner_user_id',
