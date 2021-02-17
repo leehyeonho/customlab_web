@@ -144,7 +144,7 @@ function kakaoPay() {
 
 }
 
-app.get('/kakaoPay', function(req, res) {
+app.post('/kakaoPay', function(req, res) {
   let headers = {
     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
     'Authorization': 'KakaoAK b980142b0d3b61c70c01646deb852459'
