@@ -143,7 +143,7 @@ app.get(
 function kakaoPay() {
   var headers = {
     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-    'Authorization': 'Bearer ' + access_token,
+    'Authorization': 'KakaoAK b980142b0d3b61c70c01646deb852459',
     cid : 'TC0ONETIME',
     partner_order_id : 'partner_order_id',
     partner_user_id : 'partner_user_id',
