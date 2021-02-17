@@ -123,28 +123,6 @@ exports.logout = function ( request, response ){
   if(request.session.iskakao) {
     request.session.iskakao = false;
     request.logOut();
-    // var headers = {
-    //   'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-    //
-    // }
-    //
-    // var options = {
-    //   url: "https://kapi.kakao.com/v1/user/logout",
-    //   method: 'POST',
-    //   'Authorization': 'Bearer ' + accessToken
-    // }
-    // request(options, function(error, response, body){
-    //   if(error) {
-    //     console.log("error 발생 : " + error);
-    //   } else {
-    //     var jsonObj = JSON.parse(body);
-    //     console.log(jsonObj);
-    //     // request.session.user_id = result[0].user_id;
-    //  		// request.session.user_name = result[0].user_name;
-    //  		// request.session.user_tell = result[0].user_tell;
-    //  		// request.session.isLogined = true;
-    //   }
-    // });
   }
   // if (request.isAuthenticated()) {
   //   console.log("로그인 상태");

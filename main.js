@@ -140,7 +140,40 @@ app.get(
     res.redirect('/');
   });
 
+app.get('/kakaoPay', function(request, response) {
+  var headers = {
+    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
 
+  }
+
+  var options = {
+    url: "https://kapi.kakao.com/v1/payment/ready",
+    method: 'POST',
+    'Authorization': 'KakaoAK b980142b0d3b61c70c01646deb852459',
+    cid : 'TC0ONETIME',
+    partner_order_id : 'partner_order_id',
+    partner_user_id : 'partner_user_id',
+    item_name : '초코파이',
+    quantity : '1',
+    total_amount : '2200',
+    tax_free_amount : '200',
+    approval_url : '/sub.ejs?tbl=info',
+    cancel_url : '/sub.ejs?tbl=service',
+    fail_url : '/sub.ejs?tbl=reference'
+  }
+  request(options, function(error, response, body){
+    if(error) {
+      console.log("error 발생 : " + error);
+    } else {
+      var jsonObj = JSON.parse(body);
+      console.log(jsonObj);
+      // request.session.user_id = result[0].user_id;
+      // request.session.user_name = result[0].user_name;
+      // request.session.user_tell = result[0].user_tell;
+      // request.session.isLogined = true;
+    }
+  });
+});
 
 //sub
 app.get('/sub.ejs', function(request, response) {
