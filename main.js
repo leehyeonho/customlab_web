@@ -147,12 +147,9 @@ function kakaoPay() {
 
   }
 
-  var options = {
-    url: "https://kapi.kakao.com/v1/payment/ready",
-    method: 'POST',
-    headers: headers,
-    partner_order_id : 'partner_order_id',
+  var form = {
     cid : 'TC0ONETIME',
+    partner_order_id : 'partner_order_id',
     partner_user_id : 'partner_user_id',
     item_name : encodeURI('초코파이'),
     quantity : 1,
@@ -161,6 +158,13 @@ function kakaoPay() {
     approval_url : '/sub.ejs?tbl=info',
     cancel_url : '/sub.ejs?tbl=service',
     fail_url : '/sub.ejs?tbl=reference'
+  }
+
+  var options = {
+    url: "https://kapi.kakao.com/v1/payment/ready",
+    method: 'POST',
+    headers: headers,
+    form: form
   }
 
   request(options, function(error, response, body){
