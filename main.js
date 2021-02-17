@@ -173,7 +173,7 @@ app.post('/kakaoPay', function(req, res) {
   request(options, function(error, response, body){
     if (!error && response.statusCode === 200) {
         console.log(JSON.parse(body));
-        return JSON.parse(body);
+        res.redirect(JSON.parse(body).next_redirect_pc_url);
     } else if(error) {
       console.log("error 발생 : " + error);
     }
