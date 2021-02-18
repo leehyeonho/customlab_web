@@ -10,6 +10,19 @@
 							로그아웃
 						</a>
 				  </span>
+					<span class="tm1"><a id="channel-add-button" href="#" onclick="void addChannel();">
+					  <img
+					    src="/tool/resource/static/img/button/channel/add/channel_add_small.png"
+					  />
+					</a>
+					</span>
+					<script type="text/javascript">
+					  function addChannel() {
+					    Kakao.Channel.addChannel({
+					      channelPublicId: '_PnGEK',
+					    })
+					  }
+					</script>
 					<span class="tm2" style="width:10px;color:#999999;font-size:9px;">|</span>
         <% } else { %>
 					<span class="tm1"><a href="javascript:void(0)" onclick="window.open('/loginForm', 'welcome', 'width=500, height=550, menubar=no, status=no')">로그인</a></span>
