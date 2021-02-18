@@ -2,62 +2,7 @@
 <!DOCTYPE html>
 <head>
 <%- include ("head.ejs") %>
-<script>
-  window.kakaoAsyncInit = function() {
-    Kakao.Channel.createAddChannelButton({
-      container: '#kakao-talk-channel-add-button',
-    });
-  };
-
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://developers.kakao.com/sdk/js/kakao.channel.min.js';
-    fjs.parentNode.insertBefore(js, fjs);
-  })(document, 'script', 'kakao-js-sdk');
-</script>
-<!-- <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function() {
-        // @details 카카오톡 Developer API 사이트에서 발급받은 JavaScript Key
-        Kakao.init( "24ca9ece3cc682d28dfbc38c2e97518d" );
-        // @breif 카카오 로그인 버튼을 생성합니다.
-        Kakao.Auth.createLoginButton({
-              container : "#kakao-login-btn"
-            , success : function( authObj ) {
-                // console.log( authObj );
-                 kakaoAuth();
-            }
-            , fail : function( error ) {
-                alert( JSON.stringify( error ));
-            }
-        });
-    });
-</script>
-<script>
-	function kakaoAuth() {
-		Kakao.API.request({
-					url : "/v2/user/me"
-				, success : function( res ) {
-						return res;
-					}, fail : function( error ) {
-						alert("로그인에 실패하였습니다.");
-				}
-		});
-	}
-	function kakaoLogout() {
-		Kakao.API.request({
-					url : "/v1/user/logout"
-				, success : function(id) {
-						alert("로그아웃되었습니다.")
-					}, fail : function( error ) {
-				}
-		});
-	}
-</script> -->
 </head>
-
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript">
 	function openPopupWindow() {
@@ -65,8 +10,6 @@
 	 window.open("/signup", "popup", "width=500, height=500, resizable=no, scrollbars=no")
 	}
 </script>
-
-
 <body leftmargin="0" topmargin="0">
 <DIV ID="objContents">
 <%- include ("ddScript.ejs") %>
@@ -146,4 +89,24 @@
 </DIV>
 
 </body>
+<script>
+  window.kakaoAsyncInit = function() {
+    Kakao.Channel.createAddChannelButton({
+      container: '#kakao-talk-channel-add-button',
+    });
+  };
+  window.kakaoAsyncInit = function() {
+    Kakao.Channel.createChatButton({
+      container: '#kakao-talk-channel-chat-button',
+    });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://developers.kakao.com/sdk/js/kakao.channel.min.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  })(document, 'script', 'kakao-js-sdk');
+</script>
 </html>
