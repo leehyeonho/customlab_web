@@ -19,6 +19,24 @@
 						</div>
 					</span>
 					<span class="tm2" style="width:10px;color:#999999;font-size:9px;">|</span>
+					<script>
+					  window.kakaoAsyncInit = function() {
+					    Kakao.Channel.createAddChannelButton({
+					      container: '#kakao-talk-channel-add-button',
+					    });
+					    Kakao.Channel.createChatButton({
+					      container: '#kakao-talk-channel-chat-button',
+					    });
+					  };
+
+					  (function(d, s, id) {
+					    var js, fjs = d.getElementsByTagName(s)[0];
+					    if (d.getElementById(id)) return;
+					    js = d.createElement(s); js.id = id;
+					    js.src = 'https://developers.kakao.com/sdk/js/kakao.channel.min.js';
+					    fjs.parentNode.insertBefore(js, fjs);
+					  })(document, 'script', 'kakao-js-sdk');
+					</script>
         <% } else { %>
 					<span class="tm1"><a href="javascript:void(0)" onclick="window.open('/loginForm', 'welcome', 'width=500, height=550, menubar=no, status=no')">로그인</a></span>
 					<span class="tm2" style="width:10px;color:#999999;font-size:9px;">|</span>
