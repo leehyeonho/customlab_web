@@ -74,13 +74,38 @@ var upload_g = multer({ storage: storage_gallery })
 //     password  : 'genesys11',
 //     database  : 'genesys'
 // };
-var options = {
+// var options = {
+//     host      : 'localhost',
+//     port:3306,
+//     user      : 'root',
+//     password  : 'customlab',
+//     database  : 'customlab'
+// };
+
+var options;
+var connidx = 1;
+switch (connidx) {
+  case 1:
+    options = {
+      host      : 'localhost',
+      port:3306,
+      user      : 'root',
+      password  : 'customlab',
+      database  : 'customlab'
+    };
+    break;
+  case 2:
+  options = {
     host      : 'localhost',
     port:3306,
     user      : 'root',
-    password  : 'customlab',
+    password  : '@@',
     database  : 'customlab'
-};
+  };
+    break;
+  default:
+
+}
 
 var sessionStore = new MySQLStore(options);
 app.use(cookieParser());

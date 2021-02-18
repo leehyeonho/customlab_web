@@ -4,58 +4,58 @@ const bcrypt = require('bcrypt-nodejs');
 // var session = require('express-session');
 
 //Logger
-var winston = require('winston');
-var winstonDaily = require('winston-daily-rotate-file');
-var moment = require('moment');
-function timeStampFormat() {
-    return moment().format('YYYY-MM-DD HH:mm:ss.SSS ZZ');
-};
-var logger = new (winston.createLogger)({
-    transports: [
-        new (winstonDaily)({
-            name: 'info-file',
-            filename: './log/server',
-            datePattern: '_yyyy-MM-dd.log',
-            colorize: false,
-            maxsize: 50000000,
-            maxFiles: 1000,
-            level: 'info',
-            showLevel: true,
-            json: false,
-            timestamp: timeStampFormat
-        }),
-        new (winston.transports.Console)({
-            name: 'debug-console',
-            colorize: true,
-            level: 'debug',
-            showLevel: true,
-            json: false,
-            timestamp: timeStampFormat
-        })
-    ],
-    exceptionHandlers: [
-        new (winstonDaily)({
-            name: 'exception-file',
-            filename: './log/exception',
-            datePattern: '_yyyy-MM-dd.log',
-            colorize: false,
-            maxsize: 50000000,
-            maxFiles: 1000,
-            level: 'error',
-            showLevel: true,
-            json: false,
-            timestamp: timeStampFormat
-        }),
-        new (winston.transports.Console)({
-            name: 'exception-console',
-            colorize: true,
-            level: 'debug',
-            showLevel: true,
-            json: false,
-            timestamp: timeStampFormat
-        })
-    ]
-});
+// var winston = require('winston');
+// var winstonDaily = require('winston-daily-rotate-file');
+// var moment = require('moment');
+// function timeStampFormat() {
+//     return moment().format('YYYY-MM-DD HH:mm:ss.SSS ZZ');
+// };
+// var logger = new (winston.createLogger)({
+//     transports: [
+//         new (winstonDaily)({
+//             name: 'info-file',
+//             filename: './log/server',
+//             datePattern: '_yyyy-MM-dd.log',
+//             colorize: false,
+//             maxsize: 50000000,
+//             maxFiles: 1000,
+//             level: 'info',
+//             showLevel: true,
+//             json: false,
+//             timestamp: timeStampFormat
+//         }),
+//         new (winston.transports.Console)({
+//             name: 'debug-console',
+//             colorize: true,
+//             level: 'debug',
+//             showLevel: true,
+//             json: false,
+//             timestamp: timeStampFormat
+//         })
+//     ],
+//     exceptionHandlers: [
+//         new (winstonDaily)({
+//             name: 'exception-file',
+//             filename: './log/exception',
+//             datePattern: '_yyyy-MM-dd.log',
+//             colorize: false,
+//             maxsize: 50000000,
+//             maxFiles: 1000,
+//             level: 'error',
+//             showLevel: true,
+//             json: false,
+//             timestamp: timeStampFormat
+//         }),
+//         new (winston.transports.Console)({
+//             name: 'exception-console',
+//             colorize: true,
+//             level: 'debug',
+//             showLevel: true,
+//             json: false,
+//             timestamp: timeStampFormat
+//         })
+//     ]
+// });
 
 var sql = '';
 
@@ -77,12 +77,12 @@ exports.login = function (request, response) {
 		 request.session.user_tell = result[0].user_tell;
 		 request.session.isLogined = true;
      request.session.save(function(){
-       logger.info("로그인 성공 // user_id: " + request.session.user_id);
+       // logger.info("로그인 성공 // user_id: " + request.session.user_id);
 		   response.redirect('/complete');
 		 });
 		 //response.render('index', {session : request.session});
                 } else { // 비교 실패
-		    logger.info("로그인 실패(비밀번호 오류) // user_id: " + request.session.user_id);
+		    // logger.info("로그인 실패(비밀번호 오류) // user_id: " + request.session.user_id);
 		    response.redirect('/alert?key=loginfail');
 		  }
 });
@@ -98,28 +98,28 @@ exports.signup = function ( request, response ){
   sql = 'select * from user_info where user_id = ?';
   db.query(sql, [user.user_id], function(err, isExist) {
     if(err) {
-      logger.error("회원가입 에러(DB 접근 오류)");
+      // logger.error("회원가입 에러(DB 접근 오류)");
     } else {
       if(isExist.length == 0){
           bcrypt.hash(user.password, null, null, function(err, hash) {
             sql = 'insert into user_info(user_id, password, user_name, reg_date) values (?, ?, ?, now())';
             db.query(sql, [user.user_id, hash, user.user_name], function(err, result) {
             if(err) {
-              logger.error("회원가입 에러(DB 삽입 오류)");
+              // logger.error("회원가입 에러(DB 삽입 오류)");
             } else {
               request.session.user_id = user.user_id;
            		request.session.user_name = user.user_name;
            		request.session.isLogined = true;
-              logger.info("회원가입 // user_id: " + user.user_id);
+              // logger.info("회원가입 // user_id: " + user.user_id);
               request.session.save(function(){
-                logger.info("로그인 성공 // user_id: " + request.session.user_id);
+                // logger.info("로그인 성공 // user_id: " + request.session.user_id);
          		 });
               response.redirect('/complete');
             }
             });
           });
       } else {
-        logger.info("아이디 중복 // user_id: " + user.user_id);
+        // logger.info("아이디 중복 // user_id: " + user.user_id);
       }
     }
   });

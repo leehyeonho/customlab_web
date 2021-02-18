@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<head>
+<%- include ("head.ejs") %>
+</head>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script type="text/javascript">
+	function openPopupWindow() {
+	 document.domain = "127.0.0.1"; //document.domain 값이 팝업과 부모창 동일해야 합니다.
+	 window.open("/signup", "popup", "width=500, height=500, resizable=no, scrollbars=no")
+	}
+</script>
+<body leftmargin="0" topmargin="0">
+<DIV ID="objContents">
+<%- include ("ddScript.ejs") %>
+
+<div id="wrap">
+	<div id="header">
+	  <%- include ("header.ejs") %>
+	</div><!--// header -->
+
+	<div id="visual_wrap">
+		<link rel="stylesheet" href="/css/main_slider.css" type="text/css">
+		<script type="text/javascript" src="/css/js/bxslider.js"></script>
+		<ul id="visual">
+			<li><p style="background:url(/images/slide1_lg.jpg) top center no-repeat; height:610px;"></p></li>
+			<li><p style="background:url(/images/slide2_lg.jpg) top center no-repeat; height:610px;"></p></li>
+		</ul>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('#visual').bxSlider({
+					mode:'fade',
+					autoControls: true
+				});
+			});
+		</script>
+	</div><!--// visual_wrap -->
+
+	<div class="tab">
+	  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">London</button>
+	  <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+	  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+	</div>
+
+	<div id="London" class="tabcontent">
+	  <h3>London</h3>
+	  <p>London is the capital city of England.</p>
+	</div>
+
+	<div id="Paris" class="tabcontent">
+	  <h3>Paris</h3>
+	  <p>Paris is the capital of France.</p>
+	</div>
+
+	<div id="Tokyo" class="tabcontent">
+	  <h3>Tokyo</h3>
+	  <p>Tokyo is the capital of Japan.</p>
+	</div>
+
+	<script>
+	function openCity(evt, cityName) {
+	  var i, tabcontent, tablinks;
+	  tabcontent = document.getElementsByClassName("tabcontent");
+	  for (i = 0; i < tabcontent.length; i++) {
+	    tabcontent[i].style.display = "none";
+	  }
+	  tablinks = document.getElementsByClassName("tablinks");
+	  for (i = 0; i < tablinks.length; i++) {
+	    tablinks[i].className = tablinks[i].className.replace(" active", "");
+	  }
+	  document.getElementById(cityName).style.display = "block";
+	  evt.currentTarget.className += " active";
+	}
+
+	// Get the element with id="defaultOpen" and click on it
+	document.getElementById("defaultOpen").click();
+	</script>
+
+	<%- include ("notice.ejs") %>
+	<%- include ("product.ejs") %>
+		</div><!--// left_contents -->
+
+		<div class="right_contents">
+			<%- include ("gallery.ejs") %>
+		</div><!--// right_contents -->
+	</div><!--// main_container -->
+
+	<div id="footer">
+	  <%- include ("footer.ejs") %>
+	</div><!--// footer -->
+</div><!--// wrap -->
+
+
+</DIV>
+<DIV ID="objSelection">
+</DIV>
+
+</body>
+</html>
