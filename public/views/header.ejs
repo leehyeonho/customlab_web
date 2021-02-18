@@ -2,13 +2,8 @@
 			<h1><a href="/"><img src="/images/logo.png" alt="GENESYS LAB" /></a></h1>
 			<div class="top_menu clfix">
 				<% if ( session.isLogined == true ) { %>
-						<% if (session.iskakao) { %>
-							<span style="line-height:20px;">
-<strong><%= session.user_name %></strong>님
-						<% } else { %>
-							<span>
-							<strong><%= session.user_name %></strong>님<br>
-						<% } %>
+							<span class="tm1">
+							<strong><%= session.user_name %></strong>님
 				  </span>
 				  <span class="tm1">
 				    <a href="/logout">
