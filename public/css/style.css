@@ -158,7 +158,7 @@ label.invisible{*position:Absolute;}
 .gnb_2depth li a{display:block; width:100%; height:100%; font-size:13px; color:#555555; padding:0 15px;}
 .gnb_2depth li a:hover{background:#0c5ca1; color:#ffffff; }
 #visual_wrap{width:100%; height:610px; position:relative; overflow:hidden; }
-.member_info{width:1120px; margin:0 auto; height:30px; position:relative; }
+.member_info{width:1120px; margin:0 auto; height:30px; margin-top: 50px; position:relative; }
 .member_info .inner{width:1120px; height:160px; position:absolute; left:0; bottom:0; z-index:999;}
 .member_info .member_title{position:absolute; right:0; bottom:165px; background:rgba(51,48,46,0.5); width:370px; height:60px; }
 .member_info .member_title p{font-size:24px; color:#ffffff; font-weight:bold; line-height:60px; text-align:center; text-shadow: 0 2px 5px rgba(0,0,0,0.75); -moz-text-shadow: 0 2px 5px rgba(0,0,0,0.75); -webkit-text-shadow: 0 2px 5px rgba(0,0,0,0.75); letter-spacing:-0.5px;}
