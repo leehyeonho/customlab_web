@@ -141,7 +141,8 @@ label.invisible{*position:Absolute;}
 #header{width:100%; height:110px;}
 #header h1{position:absolute; left:0; top:20px; }
 #header .top_menu{position:absolute; right:0; top:0; }
-#header .top_menu span{line-height:30px; display:block; float:left; width:80px; height:20px; text-align:center; }
+#header .top_menu span .tm1{line-height:30px; display:block; float:left; width:80px; height:20px; text-align:center; }
+#header .top_menu span .tm2{line-height:30px; display:block; float:left; width:10px; height:20px; text-align:center; }
 #header .top_menu span a{display:block; width:100%; height:100%; font-size:12px; }
 #header .top_menu span img{vertical-align:-3px; margin-right:5px;}
 #gnb{float:right; margin-top:20px;}
