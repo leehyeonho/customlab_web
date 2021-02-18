@@ -18,9 +18,10 @@
 					</span>
 					<script type="text/javascript">
 					  function addChannel() {
-					    Kakao.Channel.addChannel({
-					      channelPublicId: '_PnGEK',
-					    })
+							Kakao.Channel.createAddChannelButton({
+							  container: '#kakao-add-channel-button',
+							  channelPublicId: '_PnGEK' // 카카오톡 채널 홈 URL에 명시된 id로 설정합니다.
+							});
 					  }
 					</script>
 					<span class="tm2" style="width:10px;color:#999999;font-size:9px;">|</span>
