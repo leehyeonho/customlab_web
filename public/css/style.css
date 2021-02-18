@@ -375,8 +375,8 @@ img { border:0; }
 /* .bx-wrapper .bx-controls-auto .bx-start:hover,
 .bx-wrapper .bx-controls-auto .bx-start.active {background-position: -86px 0;} */
 .bx-wrapper .bx-controls-auto .bx-stop {display: block; text-indent: -9999px; width: 16px; height: 16px; outline: 0; margin: 0 3px;}
-.bx-wrapper .bx-prev {left:50%;  margin-left:-900px;background:url(/images/btn_prev.png) 0 0 no-repeat; z-index:1000; }
-.bx-wrapper .bx-next {right:50%; margin-right:-900px;background: url(/images/btn_next.png)  0 0 no-repeat; z-index:1000;}
+.bx-wrapper .bx-prev {margin-left:-615px;background:url(/images/btn_prev.png) 0 0 no-repeat; z-index:1000; }
+.bx-wrapper .bx-next {margin-right:-615px;background: url(/images/btn_next.png)  0 0 no-repeat; z-index:1000;}
 .bx-wrapper .bx-prev:hover {background-position: 0 0;}
 .bx-wrapper .bx-next:hover {background-position:}
 .bx-wrapper .bx-controls-direction a {position: absolute;top: 225px;outline: 0;width: 55px;height: 105px;text-indent: -9999px;z-index: 9999;}
