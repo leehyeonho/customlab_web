@@ -232,7 +232,7 @@ box-shadow: 0 0 5px 2px rgba(255,255,255,.5);
 #footer .information address span{font-size:13px; color:#999999; line-height:20px; }
 #footer .information p.copyright{font-size:13px; color:#999999; line-height:20px; margin-top:5px;}
 #footer .sns_tag{position:absolute; left:750px; top:20px; }
-#footer .sns_tag img {width: 25px; height: 25px;}
+#footer .sns_tag img {width: 25px; height: 25px; margin-right: 5px;}
 
 
 /* sub */
