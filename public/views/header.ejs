@@ -10,6 +10,7 @@
 							로그아웃
 						</a>
 				  </span>
+					<% if ( session.iskakao == true ) { %>
 					<span class="tm1">
 						<div id="kakao-talk-channel-add-button"	data-channel-public-id="_PnGEK"	data-size="small"	data-support-multiple-densities="true">
 						</div>
@@ -36,6 +37,7 @@
 					    fjs.parentNode.insertBefore(js, fjs);
 					  })(document, 'script', 'kakao-js-sdk');
 					</script>
+					<% } %>
         <% } else { %>
 					<span class="tm1"><a href="javascript:void(0)" onclick="window.open('/loginForm', 'welcome', 'width=450, height=550, menubar=no, status=no')">로그인</a></span>
 					<span class="tm2" style="width:10px;color:#999999;font-size:9px;">|</span>
