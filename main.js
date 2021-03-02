@@ -152,11 +152,12 @@ var state = "RAMDOM_STATE";
 var redirectURI = encodeURI("http://customlab.site/naver/oauth");
 var api_url = "";
 app.get('/naverlogin', function (req, res) {
+  console.log("네이버 로그인 버튼 클릭");
   api_url = 'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=' + client_id + '&redirect_uri=' + redirectURI + '&state=' + state;
    res.redirect(api_url);
  });
 
- app.get('/callback', function (req, res) {
+ app.get('/naver/oauth', function (req, res) {
     code = req.query.code;
     state = req.query.state;
     api_url = 'https://nid.naver.com/oauth2.0/token?grant_type=authorization_code&client_id='
@@ -182,10 +183,6 @@ app.get('/naverlogin', function (req, res) {
       }
     });
   });
-
-app.get('/naver/oauth', function(request, response) {
-  response.redirect('/complete');
-});
 
 app.get('/kakao', passport.authenticate('kakao'));
 
