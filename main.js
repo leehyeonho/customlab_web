@@ -174,8 +174,6 @@ app.get('/naverlogin', function (req, res) {
         // req.session.isnaver = true;
         // res.redirect('/complete');
         console.log(body);
-        res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
-        res.end(body);
       } else {
         res.status(response.statusCode).end();
         console.log('error = ' + response.statusCode);
