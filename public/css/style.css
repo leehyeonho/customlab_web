@@ -135,9 +135,9 @@ label.invisible{*position:Absolute;}
 
 
 .center{text-align:center; }
-.inner{width:1120px; margin:0 auto; position:Relative; }
+.inner{width:1600px; margin:0 auto; position:Relative; }
 
-#wrap{width:100%; min-width:1120px; position:relative; }
+#wrap{width:100%; min-width:1600px; position:relative; }
 #header{width:100%; height:110px;}
 #header h1{position:absolute; left:0; top:20px; }
 #header .top_menu{position:absolute; right:0; top:0; }
@@ -159,8 +159,8 @@ label.invisible{*position:Absolute;}
 .gnb_2depth li a{display:block; width:100%; height:100%; font-size:13px; color:#555555; padding:0 15px;}
 .gnb_2depth li a:hover{background:#0c5ca1; color:#ffffff; }
 #visual_wrap{width:100%; height:610px; position:relative; overflow:hidden; }
-.member_info{width:1120px; margin:0 auto; height:30px; margin-top: 100px; position:relative; }
-.member_info .inner{width:1120px; height:160px; position:absolute; left:0; bottom:0; z-index:999;}
+.member_info{width:1600px; margin:0 auto; height:30px; margin-top: 100px; position:relative; }
+.member_info .inner{width:1600px; height:160px; position:absolute; left:0; bottom:0; z-index:999;}
 .member_info .member_title{position:absolute; right:0; bottom:165px; background:rgba(51,48,46,0.5); width:370px; height:60px; }
 .member_info .member_title p{font-size:24px; color:#ffffff; font-weight:bold; line-height:60px; text-align:center; text-shadow: 0 2px 5px rgba(0,0,0,0.75); -moz-text-shadow: 0 2px 5px rgba(0,0,0,0.75); -webkit-text-shadow: 0 2px 5px rgba(0,0,0,0.75); letter-spacing:-0.5px;}
 .member_info .memberBox{float:left; height:160px; position:relative; transition:200ms linear all;}
@@ -181,8 +181,8 @@ box-shadow: 0 0 5px 2px rgba(255,255,255,.5);
 .member_info .member_2:hover{background:#0c5ca1 }
 .member_info .member_3{width:370px; background:#33302e }
 .member_info .member_3:hover{background:#33302e }
-.main_container{width:1120px; margin:22px auto 25px; }
-.left_contents{width:768px; float:left; }
+.main_container{width:1600px; margin:22px auto 25px; }
+.left_contents{width:1100px; float:left; }
 /* NOTICE */
 .notice_area{height:230px; position:relative; }
 .notice_area h2{height:51px; line-height:50px; border-bottom:1px solid #6baddf; font-size:20px; color:#222222; }
@@ -206,7 +206,6 @@ box-shadow: 0 0 5px 2px rgba(255,255,255,.5);
 .product_area a.btn_more{position:absolute; right:0; top:20px;}
 .product_area .product_list{margin-top:9px;}
 .product_area .product_list li{width:330px; height:230px; float:left; background:#f5f5f5; word-break:keep-all; margin-left:15px; position:relative; }
-.product_area .product_list li:first-child{margin-left:0; }
 .product_area .product_list li a{display:block; width:100%; height:100%; padding:17px 23px;}
 .product_area .product_list li dl{}
 .product_area .product_list li dt{font-size:14px; color:#0c5ca1; font-weight:bold; line-height:1; margin-bottom:10px; }
@@ -214,7 +213,7 @@ box-shadow: 0 0 5px 2px rgba(255,255,255,.5);
 .product_area .product_list li span.btn_more_cont{position:absolute; right:20px; top:20px; font-size:10px; color:#999999; line-height:1; transition:300ms linear all;}
 .product_area .product_list li:hover span.btn_more_cont{color:#333333; }
 /* GALLERY */
-.right_contents{width:300px; float:right; position:relative; }
+.right_contents{width:400px; float:right; position:relative; }
 .right_contents h2{font-size:20px; color:#222222; height:45px; line-height:50px;}
 .right_contents a.btn_more{position:absolute; right:0; top:19px;}
 .right_contents .gallery_list{}
@@ -225,14 +224,31 @@ box-shadow: 0 0 5px 2px rgba(255,255,255,.5);
 .right_contents .gallery_list li .gallery_preview_txt{}
 .right_contents .gallery_list li .gallery_preview_txt span{float:right; font-size:12px; color:#999999; line-height:20px; margin-left:15px;}
 .right_contents .gallery_list li .gallery_preview_txt p{display:block; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; font-size:13px; color:#555555; line-height:20px; }
+/* CLASS */
+.oclass_area{position:relative; }
+.oclass_area h2{height:51px; line-height:50px;  font-size:20px; color:#222222; text-align: center;}
+.oclass_area a.btn_more{position:absolute; right:0; top:19px;}
+.oclass_area .recent_oclass{width:405px; position:absolute; left:0; top:68px;}
+.oclass_area .recent_oclass .recent_oclass_txt{width:305px; float:right; }
+.oclass_area .recent_oclass .recent_oclass_txt dl{}
+.oclass_area .recent_oclass .recent_oclass_txt dt{font-size:16px; color:#222222; font-weight:bold; display:block; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; margin-bottom:10px;}
+.oclass_area .recent_oclass .recent_oclass_txt dd{font-size:13px; color:#555555; line-height:18px; height:54px; overflow:hidden; }
+.oclass_area .recent_oclass .recent_oclass_txt a.btn_more_cont{font-size:13px; color:#005dab; margin-top:15px; display:inline-block; *zoom: 1; *display: inline; }
+.oclass_area .recent_oclass .dateBox{width:80px; height:130px; border:1px solid #dddddd; display:table-cell; text-align:center; vertical-align:Middle; }
+.oclass_area .recent_oclass .dateBox span.mmdd{font-size:20px; color:#222222; font-family:'LotteMartDream'; display:block; line-height:30px; font-weight:bold; margin-top:10px;}
+.oclass_area .recent_oclass .dateBox span.yyyy{font-size:13px; color:#222222; display:block; line-height:18px;}
+.oclass_area .oclass_list{width:305px; position:absolute; right:15px; top:68px;}
+.oclass_area .oclass_list li{font-size:13px; color:#555555; padding-left:10px; margin-bottom:10px;}
+.oclass_area .oclass_list li a{display:block; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; color:#555555; line-height:20px; font-weight:bold;}
+.oclass_area .oclass_list li span{font-size:12px; line-height:18px;}
 
-#footer{width:1005; height:125px; background:#333333; }
-#footer .footer_logo{position:absolute; left:0; top:28px;}
-#footer .information{position:absolute; left:250px; top:25px; }
+#footer{width:100%; height:125px; background:#333333;}
+#footer .footer_logo{position:absolute; left:20%; top:22px;}
+#footer .information{position:absolute; left:30%; top:25px; }
 #footer .information address{font-size:0; }
 #footer .information address span{font-size:13px; color:#999999; line-height:20px; }
 #footer .information p.copyright{font-size:13px; color:#999999; line-height:20px; margin-top:5px;}
-#footer .sns_tag{position:absolute; left:750px; top:20px; }
+#footer .sns_tag{position:absolute; left:70%; top:20px; }
 #footer .sns_tag img {width: 25px; height: 25px; margin-right: 5px;}
 
 

@@ -1,0 +1,143 @@
+<style>
+  .year_tab_list {
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+
+  .tab button:hover {
+    background-color: #ddd;
+  }
+
+  .tabcontent {
+    display: none;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+    text-align: center;
+  }
+
+  @-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+</style>
+<div class="oclass_area">
+  <h2>원데이 클래스 한눈에 보기</h2>
+</div><!--// product_area -->
+<div class="year_tab">
+  <div class="year_tab_inWrap">
+    <ul class="year_tab_list" style="width: 1785px; left: 0px;">
+        <li><button class="tablinks" onclick="openCity(event, '1')" id="defaultOpen">마크라메</button></li>
+        <li><button class="tablinks" onclick="openCity(event, '2')">원데이클래스</button></li>
+        <!-- <li>
+        <a href="javascript:iframe_url('/wow');">
+        WOW</a>
+        </li> -->
+    </ul>
+  </div>
+  <p class="prev_btn"><img src="/images/btn_prev_red.jpg" alt=""></p>
+  <p class="next_btn"><img src="/images/btn_next_red.jpg" alt=""></p>
+</div>
+<div id="1" class="tabcontent">
+  <img src="/images/onedayClass/1613724611216.png" alt="">
+  <img src="/images/onedayClass/1613724612345.png" alt="">
+</div>
+
+<div id="2" class="tabcontent">
+  <img src="/images/onedayClass/1613724612345.png" alt="">
+</div>
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+<style type="text/css">
+.year_tab{width:60%; margin:0 auto; position:relative; overflow:hidden;}
+.year_tab_inWrap{width:735px; margin:0 auto; position:relative; overflow:hidden; }
+.year_tab ul.year_tab_list {height:45px;  white-space: nowrap; padding: 0px; position: relative; margin:0 auto; font-size:0; }
+.year_tab ul.year_tab_list li{display: inline-block;  vertical-align:middle; font-size:14px; font-weight:600; color:#bbb; height:45px;  line-height:45px; margin:0 5px; text-align:center; width:95px; text-align:center; cursor:pointer; box-sizing:border-box;}
+.year_tab ul.year_tab_list li:hover{color:#383838; }
+.year_tab ul.year_tab_list li a.on{ font-size:18px; font-weight:600; color:#383838;  line-height:45px}
+.year_tab .prev_btn{float:left; position:absolute; left:0; top:1px; cursor:pointer;}
+.year_tab .next_btn{position:absolute; right:0; top:1px; cursor:pointer;}
+.down_btn{display:inline-block; width:105px; height:30px;background-color:#a1a1a1; color:#fff; font-size:12px; font-weight:600; text-align:center; line-height:30px}
+.link_btn{display:inline-block;  width:105px; height:30px; background-color:#a4b2bd; color:#fff; font-size:12px; font-weight:600; text-align:center; line-height:30px}
+</style>
+<script type="text/javascript">
+$(function(){
+  //$( ".year_tab_list" ).draggable({ axis: "x" });
+  var wrprwdth = $('.year_tab').width(),
+    ulwdth = 0,
+    lilength = $('.year_tab_list li').length,
+    liwidth = parseInt($('.year_tab_list li').width() + 10),
+    moveleft = 0;
+  $(window).resize(function(){
+     wrprwdth = $('.year_tab').width();
+     if(parseInt(ulwdth - wrprwdth) <= parseInt(moveleft) - 95){
+      moveleft = parseInt(ulwdth - wrprwdth);
+       $('.year_tab_list').stop().animate({left : parseInt('-' + moveleft)},800);
+     return false;
+    }
+  });
+  // Get all list item Width;
+  // $('.year_tab_list li').each(function(){
+  //	 ulwdth += $(this).width() + 8;
+  //  });
+
+  // Set ul Width;
+  ulwdth += liwidth * lilength;
+  $('.year_tab_list').width(ulwdth);
+  moveleft = 0;
+  $('.year_tab_list').stop().animate({left : parseInt(moveleft)});
+
+  //Prev button click function
+  $('.prev_btn').click(function(){
+    if(parseInt(moveleft)<=0){
+      moveleft = 0;
+       $('.year_tab_list').stop().animate({left : parseInt(moveleft)},800);
+     return false;
+    }else{
+      moveleft -= ulwdth/lilength;
+      $('.year_tab_list').stop().animate({left : parseInt('-'+moveleft)},800);
+    }
+  });
+  //Next button click function
+  $('.next_btn').click(function(){
+    if(parseInt(ulwdth - wrprwdth) <= parseInt(moveleft -95 )){
+      // moveleft = parseInt(ulwdth - wrprwdth);
+      //  $('.year_tab_list').stop().animate({left : parseInt('-' + moveleft)},800);
+     // return false;
+    }else{
+      moveleft += ulwdth/lilength;
+      $('.year_tab_list').stop().animate({left : parseInt('-' + moveleft)},800);
+    }
+  });
+});
+</script>

@@ -36,47 +36,17 @@
 			});
 		</script>
 	</div><!--// visual_wrap -->
-
-	<div class="member_info">
-		<div class="inner clfix">
-			<div class="member_title"><p>CUSTOM LAB.</p></div>
-			<div class="memberBox member_1">
-				<a href="/sub.ejs?tbl=info">
-					<h2>회사소개</h2>
-					<p>Information</p>
-					<span class="btn_more"><img src="/images/btn_more_arrow.png" alt="" /></span>
-				</a>
-			</div><!--// member_1 -->
-			<div class="memberBox member_2">
-				<a href="/sub.ejs?tbl=service">
-					<h2>서비스소개</h2>
-					<p>Service</p>
-					<span class="btn_more"><img src="/images/btn_more_arrow.png" alt="" /></span>
-				</a>
-			</div><!--// member_2 -->
-			<div class="memberBox member_3">
-				<a href="/sub.ejs?tbl=reference">
-					<h2>레퍼런스</h2>
-					<p>Reference
-					<!-- <form action="/kakaoPay" method="post">
-						<input type="submit" name="e" value="e">
-					</form> -->
-					</p>
-					<span class="btn_more"><img src="/images/btn_more_arrow.png" alt="" /></span>
-				</a>
-			</div><!--// member_3 -->
-		</div><!--// inner -->
-	</div><!--// member_info -->
-
-	<%- include ("notice.ejs") %>
-	<%- include ("product.ejs") %>
+	<div class="main_container clfix">
+		<%- include ("oclass.ejs") %>
+		<div class="left_contents">
+			<%- include ("notice.ejs") %>
+			<%- include ("product.ejs") %>
 		</div><!--// left_contents -->
 
 		<div class="right_contents">
 			<%- include ("gallery.ejs") %>
 		</div><!--// right_contents -->
 	</div><!--// main_container -->
-
 	<div id="footer">
 	  <%- include ("footer.ejs") %>
 	</div><!--// footer -->
