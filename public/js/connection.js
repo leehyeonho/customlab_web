@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 
 var connection;
-var connidx = 2;
+var connidx = 1;
 switch (connidx) {
   case 1:
     connection = mysql.createConnection({
@@ -17,7 +17,7 @@ switch (connidx) {
     host      : 'localhost',
     port:3306,
     user      : 'root',
-    password  : '110356tk@@',
+    password  : '',
     database  : 'customlab'
   });
     break;

@@ -83,7 +83,7 @@ var upload_g = multer({ storage: storage_gallery })
 // };
 
 var options;
-var connidx = 2;
+var connidx = 1;
 switch (connidx) {
   case 1:
     options = {
@@ -99,7 +99,7 @@ switch (connidx) {
     host      : 'localhost',
     port:3306,
     user      : 'root',
-    password  : '110356tk@@',
+    password  : '',
     database  : 'customlab'
   };
     break;
