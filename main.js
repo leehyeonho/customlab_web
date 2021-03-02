@@ -168,6 +168,11 @@ app.get('/naverlogin', function (req, res) {
      };
     request.get(options, function (error, response, body) {
       if (!error && response.statusCode == 200) {
+        // req.session.user_id = req.user.id;
+     		// req.session.user_name = req.user.username;
+     		// req.session.isLogined = true;
+        // req.session.isnaver = true;
+        // res.redirect('/complete');
         res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
         res.end(body);
       } else {
@@ -176,6 +181,10 @@ app.get('/naverlogin', function (req, res) {
       }
     });
   });
+
+app.get('/naver/oauth', function(request, response) {
+  response.redirect('/');
+});
 
 app.get('/kakao', passport.authenticate('kakao'));
 
