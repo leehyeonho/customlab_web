@@ -168,8 +168,8 @@ app.get('/naverlogin', function (req, res) {
         headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}
      };
     request.get(options, function (error, response, body) {
-      console.log(body);
-      console.log(body."access_token");
+      console.log(JSON.parse(body));
+      console.log(JSON.parse(body).access_token);
       if (!error && response.statusCode == 200) {
         options = {
           url : 'https://openapi.naver.com/v1/nid/me',
