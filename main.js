@@ -146,10 +146,10 @@ app.get('/', function(request, response) {
   index.index(request, response);
 });
 
-var client_id = 'YOUR_CLIENT_ID';
-var client_secret = 'YOUR_CLIENT_SECRET';
+var client_id = '1eyoT7JwrfaxooWClIGS';
+var client_secret = '5KRVkGre7Y';
 var state = "RAMDOM_STATE";
-var redirectURI = encodeURI("YOUR_CALLBACK_URL");
+var redirectURI = encodeURI("/");
 var api_url = "";
 app.get('/naverlogin', function (req, res) {
   api_url = 'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=' + client_id + '&redirect_uri=' + redirectURI + '&state=' + state;
