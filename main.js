@@ -168,12 +168,10 @@ app.get('/naverlogin', function (req, res) {
         headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}
      };
     request.get(options, function (error, response, body) {
-      console.log(JSON.parse(body));
-      console.log(JSON.parse(body).access_token);
       if (!error && response.statusCode == 200) {
         options = {
           url : 'https://openapi.naver.com/v1/nid/me',
-          headers: {'Authorization': "Bearer " + body.access_token}
+          headers: {'Authorization': "Bearer " + JSON.parse(body).access_token}
         };
         request.get(options, function (error, response, body) {
           if (!error && response.statusCode == 200) {
