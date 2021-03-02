@@ -169,6 +169,7 @@ app.get('/naverlogin', function (req, res) {
      };
     request.get(options, function (error, response, body) {
       console.log(body);
+      console.log(body.access_token);
       if (!error && response.statusCode == 200) {
         options = {
           url : 'https://openapi.naver.com/v1/nid/me',
