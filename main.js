@@ -169,14 +169,22 @@ app.get('/naverlogin', function (req, res) {
      };
     request.get(options, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-        // req.session.user_id = req.user.id;
-     		// req.session.user_name = req.user.username;
-     		// req.session.isLogined = true;
-        // req.session.isnaver = true;
-        // res.redirect('/complete');
-        console.log("body : " + body);
-        res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
-        res.end(body);
+        options = {
+          url : 'https://openapi.naver.com/v1/nid/me',
+          headers: {'Authorization': "Bearer " + body.access_token}
+        };
+        request.get(options, function (error, response, body) {
+          if (!error && response.statusCode == 200) {
+             res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
+             res.end(body);
+           } else {
+             console.log('error');
+             if(response != null) {
+               res.status(response.statusCode).end();
+               console.log('error = ' + response.statusCode);
+             }
+           }
+        });
       } else {
         res.status(response.statusCode).end();
         console.log('error = ' + response.statusCode);
