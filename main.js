@@ -153,7 +153,7 @@ var redirectURI = encodeURI("http://customlab.site/naver/oauth");
 var api_url = "";
 app.get('/naverlogin', function (req, res) {
   api_url = 'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=' + client_id + '&redirect_uri=' + redirectURI + '&state=' + state;
-   response.redirect(api_url);
+   res.redirect(api_url);
  });
 
  app.get('/callback', function (req, res) {
