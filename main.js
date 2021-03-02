@@ -175,8 +175,11 @@ app.get('/naverlogin', function (req, res) {
         };
         request.get(options, function (error, response, body) {
           if (!error && response.statusCode == 200) {
-             res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
-             res.end(body);
+            req.session.user_id = JSON.parse(body).id;
+            req.session.user_name = JSON.parse(body).name;
+            req.session.isLogined = true;
+            req.session.isnaver = true;
+            res.redirect('/complete');
            } else {
              console.log('error');
              if(response != null) {
