@@ -173,6 +173,7 @@ app.get('/naverlogin', function (req, res) {
      		// req.session.isLogined = true;
         // req.session.isnaver = true;
         // res.redirect('/complete');
+        console.log(body);
         res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
         res.end(body);
       } else {
@@ -183,7 +184,7 @@ app.get('/naverlogin', function (req, res) {
   });
 
 app.get('/naver/oauth', function(request, response) {
-  response.redirect('/');
+  response.redirect('/complete');
 });
 
 app.get('/kakao', passport.authenticate('kakao'));
