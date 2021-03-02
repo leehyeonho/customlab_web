@@ -175,6 +175,7 @@ app.get('/naverlogin', function (req, res) {
         };
         request.get(options, function (error, response, body) {
           if (!error && response.statusCode == 200) {
+            console.log(JSON.parse(body));
             req.session.user_id = JSON.parse(body).id;
             req.session.user_name = JSON.parse(body).name;
             req.session.isLogined = true;
