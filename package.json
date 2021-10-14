@@ -4,7 +4,7 @@
   "description": "\"# Genesys\" \r # customlab_web",
   "main": "main.js",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "bcrypt": "^4.0.1",
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
